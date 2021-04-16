@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#FF0000"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/txt_holiday_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        tools:text="Holiday Name" />
+
+    <TextView
+        android:id="@+id/txt_holiday_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="150dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        tools:text="Holiday Date" />
+    <TextView
+        android:id="@+id/txt_holiday_public_or_not"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="250dp"
+        android:gravity="center"
+        android:text="Holiday Public:  "
+        android:textColor="#fff"
+        android:textSize="15dp"
+        />
+
+
+</LinearLayout>
+
+</androidx.cardview.widget.CardView>

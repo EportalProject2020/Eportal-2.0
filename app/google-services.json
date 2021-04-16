@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "848981724419",
+    "firebase_url": "https://e-portalproject.firebaseio.com",
+    "project_id": "e-portalproject",
+    "storage_bucket": "e-portalproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848981724419:android:0f71ae565ae96d5010ad36",
+        "android_client_info": {
+          "package_name": "com.example.eportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848981724419-k5in3er5f0tf696u71mvpi624avo95p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJcwvoGpWC1NaHmuM4Fb24Sq5Ps7CMCzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848981724419-k5in3er5f0tf696u71mvpi624avo95p0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848981724419:android:e6b10f4f4c05d0fc10ad36",
+        "android_client_info": {
+          "package_name": "com.project.eportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848981724419-k5in3er5f0tf696u71mvpi624avo95p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJcwvoGpWC1NaHmuM4Fb24Sq5Ps7CMCzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848981724419-k5in3er5f0tf696u71mvpi624avo95p0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
