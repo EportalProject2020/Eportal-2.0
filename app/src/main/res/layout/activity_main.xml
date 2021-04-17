@@ -1,80 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:gravity="center"
     android:orientation="vertical"
     android:paddingHorizontal="8dp"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tv_eportal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/e_portal"
+        android:textColor="@color/White"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <LinearLayout
+        android:id="@+id/LL_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center">
-
-        <ImageView
-            android:contentDescription="@string/userphoto"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/userlogo" />
-
-        <ImageView
-            android:contentDescription="@string/managerphoto"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/managerlogo" />
-    </LinearLayout>
-<GridLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/bg_button"
-            android:gravity="center"
-            android:onClick="UserButton"
-            android:padding="20dp"
-            android:text="@string/User"
-            android:textAllCaps="false"
-            android:textColor="@color/Black"
-            android:textSize="25sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_eportal">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/userlogo"
+            android:contentDescription="@string/userphoto" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/managerlogo"
+            android:contentDescription="@string/managerphoto" />
+    </LinearLayout>
 
     <Button
-        android:padding="15dp"
+        android:id="@+id/btn_user"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button"
+        android:gravity="center"
+        android:onClick="UserButton"
+        android:padding="16dp"
+        android:layout_margin="8dp"
+        android:text="@string/User"
+        android:textAllCaps="false"
+        android:textColor="@color/Black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@id/btn_admin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/LL_image" />
+
+    <Button
         android:id="@+id/btn_admin"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button"
         android:gravity="center"
         android:onClick="AdminButton"
+        android:padding="16dp"
+        android:layout_margin="8dp"
         android:text="@string/Manager"
         android:textAllCaps="false"
         android:textColor="@color/Black"
-        android:textSize="25sp" />
-    </LinearLayout>
-</GridLayout>
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_user"
+        app:layout_constraintTop_toBottomOf="@id/LL_image" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
