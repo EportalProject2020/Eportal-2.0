@@ -15,10 +15,9 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.project.eportal.Forgetpassword;
 import com.project.eportal.MainActivity;
 import com.project.eportal.R;
-import com.project.eportal.manager.AdminLogin;
-import com.project.eportal.manager.ManagerDashboard;
 
 public class EmployeeLogin extends AppCompatActivity {
 
@@ -54,8 +53,6 @@ public class EmployeeLogin extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Intent intent = new Intent(EmployeeLogin.this, Dashboard.class);
                                 startActivity(intent);
@@ -72,18 +69,8 @@ public class EmployeeLogin extends AppCompatActivity {
     }
 
     public void forgot_pass(View view) {
-//        FirebaseAuth auth = FirebaseAuth.getInstance();
-//
-//        auth.sendPasswordResetEmail(email)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                                Intent intent = new Intent(AdminLogin.this, forgot_password.class);
-//        startActivity(intent);
-//                        }
-//                    }
-//                });
+        Intent intent = new Intent(EmployeeLogin.this, Forgetpassword.class);
+        startActivity(intent);
     }
 
 }

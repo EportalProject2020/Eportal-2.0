@@ -38,4 +38,7 @@
     <string name="meeting_settings">Meeting Settings</string>
     <string name="update">Update</string>
     <string name="add_request">Add Request</string>
+    <string name="please_enter_your_email_addres">Please enter your email addres</string>
+    <string name="enter_email_here">Enter email here</string>
+    <string name="e_portal">E-Portal</string>
 </resources>

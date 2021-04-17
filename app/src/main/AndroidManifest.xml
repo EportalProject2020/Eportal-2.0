@@ -3,7 +3,7 @@
     package="com.project.eportal">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".manager.MakeTasksActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Forgetpassword" />
+        <activity android:name=".manager.MakeTasksActivity" />
         <activity android:name=".manager.ItRequestsMangerActivity" />
         <activity android:name=".employee.SendItRequestActivity" />
         <activity android:name=".employee.TasksActivity" />
@@ -24,7 +26,7 @@
         <activity android:name=".manager.AdminLogin" />
         <activity android:name=".employee.EmployeeLogin" />
         <activity android:name=".employee.Dashboard" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

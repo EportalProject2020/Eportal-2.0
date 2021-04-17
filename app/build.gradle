@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.firebase:firebase-core:18.0.3'
     implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+
 
 
 }

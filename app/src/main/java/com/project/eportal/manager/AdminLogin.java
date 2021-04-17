@@ -16,8 +16,10 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.project.eportal.Forgetpassword;
 import com.project.eportal.MainActivity;
 import com.project.eportal.R;
+import com.project.eportal.employee.EmployeeLogin;
 
 public class AdminLogin extends AppCompatActivity {
     @Override
@@ -70,18 +72,8 @@ public class AdminLogin extends AppCompatActivity {
     }
 
     public void forgot_pass(View view) {
-//        FirebaseAuth auth = FirebaseAuth.getInstance();
-//
-//        auth.sendPasswordResetEmail(email)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Intent intent = new Intent(AdminLogin.this, forgot_password.class);
-//      startActivity(intent);
-//                        }
-//                    }
-//                });
+        Intent intent = new Intent(AdminLogin.this, Forgetpassword.class);
+        startActivity(intent);
     }
 
 }

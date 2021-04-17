@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AdminButton(View view) {
-        Intent intent = new Intent(MainActivity.this, ManagerDashboard.class);
+        Intent intent = new Intent(MainActivity.this, AdminLogin.class);
         startActivity(intent);
 
     }
