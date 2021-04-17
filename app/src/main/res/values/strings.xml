@@ -41,4 +41,6 @@
     <string name="please_enter_your_email_addres">Please enter your email addres</string>
     <string name="enter_email_here">Enter email here</string>
     <string name="e_portal">E-Portal</string>
+    <string name="userphoto">UserPhoto</string>
+    <string name="managerphoto">managerphoto</string>
 </resources>
