@@ -53,7 +53,7 @@ public class ManagerDashboard extends AppCompatActivity {
 
     public void createTask(View view) {
 
-        Intent intent = new Intent(ManagerDashboard.this,AddTaskActivity.class);
+        Intent intent = new Intent(ManagerDashboard.this,MakeTasksActivity.class);
         startActivity(intent);
 
     }

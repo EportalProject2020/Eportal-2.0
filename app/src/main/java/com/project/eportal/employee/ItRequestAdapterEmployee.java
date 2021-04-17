@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,7 +35,15 @@ public class ItRequestAdapterEmployee extends RecyclerView.Adapter<ItRequestAdap
 
         ITRequestData currentdata = itRequestData.get(position);
         holder.edtRequestTitle.setText(currentdata.getRequestTitle());
-        holder.edtRequestDescription.setText(currentdata.getRequestDescription());
+
+        holder.btn_attach.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+
+
+            }
+        });
     }
 
     @Override
@@ -44,15 +53,16 @@ public class ItRequestAdapterEmployee extends RecyclerView.Adapter<ItRequestAdap
 
     public class EmployeeViewHolder extends RecyclerView.ViewHolder {
 
-        EditText edtRequestTitle, edtRequestDescription;
+        EditText edtRequestTitle, edtRequestAddFile;
 
+        ImageButton btn_attach;
 
         public EmployeeViewHolder(@NonNull View itemView) {
             super(itemView);
 
             this.edtRequestTitle = itemView.findViewById(R.id.edt_request_title);
-            this.edtRequestDescription = itemView.findViewById(R.id.edt_request_description);
-
+            this.edtRequestAddFile = itemView.findViewById(R.id.edt_request_add_file);
+            this.btn_attach = itemView.findViewById(R.id.img_btn_attach);
         }
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    tools:context=".manager.MakeTasksActivity">
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_text"
+        android:hint="Select Pdf File"
+        android:textColorHint="@color/White"
+        android:textColor="@color/White"
+        android:background="@color/Black"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn"
+        android:layout_below="@+id/edit_text"
+        android:layout_centerHorizontal="true"
+        android:text="Upload File"/>
+
+
+
+</RelativeLayout>

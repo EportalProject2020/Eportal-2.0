@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.project.eportal.employee.EmployeeLogin;
 import com.project.eportal.manager.AdminLogin;
+import com.project.eportal.manager.ManagerDashboard;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AdminButton(View view) {
-        Intent intent = new Intent(MainActivity.this, AdminLogin.class);
+        Intent intent = new Intent(MainActivity.this, ManagerDashboard.class);
         startActivity(intent);
 
     }

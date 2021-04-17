@@ -24,39 +24,27 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/edt_task_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:autofillHints=""
-                android:inputType="text"
-                android:paddingTop="8dp"
-                android:textColor="@color/Black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                tools:hint="Task title "
-                tools:ignore="LabelFor" />
-
-            <EditText
-                android:id="@+id/edt_task_desc"
+                android:id="@+id/edt_task_add_file"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:autofillHints=""
                 android:inputType="text"
-                tools:hint="Enter task description here"
+                tools:hint="Tap to Add file"
                 tools:ignore="LabelFor" />
 
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/img_btn_attach"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="bottom"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@string/meeting_settings"
-            android:src="@drawable/ic_baseline_settings_24"
+            android:src="@drawable/ic_attach_file"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -71,6 +59,22 @@
             app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_text" />
+
+        <EditText
+            android:id="@+id/edt_task_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:autofillHints=""
+            android:inputType="text"
+            android:paddingTop="8dp"
+            android:textColor="@color/Black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:hint="Task title "
+            tools:ignore="LabelFor"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="22dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

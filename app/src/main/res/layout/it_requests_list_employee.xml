@@ -38,25 +38,25 @@
                 tools:ignore="LabelFor" />
 
             <EditText
-                android:id="@+id/edt_request_description"
+                android:id="@+id/edt_request_add_file"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:autofillHints=""
                 android:inputType="text"
-                tools:hint="Enter request description here"
+                tools:hint="Tap to Add file"
                 tools:ignore="LabelFor" />
 
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/img_btn_attach"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="bottom"
             android:contentDescription="@string/meeting_settings"
-            android:src="@drawable/ic_baseline_settings_24"
+            android:src="@drawable/ic_attach_file"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -64,8 +64,8 @@
             android:id="@+id/btn_add_task"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
             android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
             android:text="@string/add_request"
             app:layout_constraintEnd_toStartOf="@+id/imageButton"
             app:layout_constraintHorizontal_bias="0.542"
