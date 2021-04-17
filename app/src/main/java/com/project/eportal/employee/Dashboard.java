@@ -51,12 +51,12 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void goToSchedule(View view) {
-        Intent intent = new Intent(Dashboard.this, SendItRequestActivity.class);
+        Intent intent = new Intent(Dashboard.this, MakeItRequestActivity.class);
         startActivity(intent);
     }
 
     public void gotToTasks(View view) {
-        Intent intent = new Intent(Dashboard.this, TasksActivity.class);
+        Intent intent = new Intent(Dashboard.this, GetTasksActivity.class);
         startActivity(intent);
     }
 

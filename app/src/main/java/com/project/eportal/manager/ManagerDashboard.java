@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.project.eportal.R;
 import com.project.eportal.calendar.activities.Calendar;
+import com.project.eportal.employee.GetTasksActivity;
 
 public class ManagerDashboard extends AppCompatActivity {
 
@@ -60,7 +61,7 @@ public class ManagerDashboard extends AppCompatActivity {
 
 
     public void addSchedule(View view) {
-        Intent intent = new Intent(ManagerDashboard.this, ItRequestsMangerActivity.class);
+        Intent intent = new Intent(ManagerDashboard.this, GetTasksActivity.class);
         startActivity(intent);
     }
 }

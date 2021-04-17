@@ -9,19 +9,21 @@
     android:paddingHorizontal="8dp"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/tv_eportal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/e_portal"
         android:textColor="@color/White"
-        android:textSize="40sp"
+        android:textSize="60sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <LinearLayout
         android:id="@+id/LL_image"
