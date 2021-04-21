@@ -45,4 +45,5 @@
     <string name="managerphoto">managerphoto</string>
     <string name="click_on_the_icon_to_redirect_to_zoom">Click on the icon to redirect to zoom</string>
     <string name="meeting_creation">Meeting creation</string>
+    <string name="zoom">zoom</string>
 </resources>
