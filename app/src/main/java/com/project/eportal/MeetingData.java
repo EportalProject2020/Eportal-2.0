@@ -13,10 +13,9 @@ public class MeetingData {
     private String meeting_id;
 
 
-    public MeetingData(String id, String title, String link) {
+    public MeetingData( String title, String link) {
         this.title = title;
         this.link = link;
-        this.id = id;
     }
 
     public String getTitle() {

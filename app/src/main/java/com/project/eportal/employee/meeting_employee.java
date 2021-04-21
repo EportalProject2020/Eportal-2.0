@@ -59,9 +59,9 @@ public class meeting_employee extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         progressDialog.dismiss();
                         for (DocumentSnapshot item:task.getResult()){
-                            MeetingData data = new MeetingData(item.getString("id")
-                                    ,item.getString("Title")
-                                    ,item.getString("Link"));
+                            MeetingData data = new MeetingData(
+                                    item.getString("title")
+                                    ,item.getString("description"));
                             meetingData.add(data);
                         }
                         adapter = new EmployeeAdapter(meeting_employee.this,meetingData);

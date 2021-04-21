@@ -54,15 +54,15 @@ public class Meeting_manager extends AppCompatActivity {
     }
 
     private void uploadData(String title, String link) {
-        progressDialog.setTitle("Adding data to firestore");
+        progressDialog.setTitle("Adding data to Firestore");
         progressDialog.show();
 
             String meetingId = UUID.randomUUID().toString();
 
         Map<String, Object> items = new HashMap<>();
-        items.put("id", meetingId);
-        items.put("Title", title);
-        items.put("Link", link);
+//        items.put("id", meetingId);
+        items.put("title", title);
+        items.put("description", link);
 
 
         db.collection("items").document(meetingId).set(items)
