@@ -7,20 +7,20 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="32dp"
     app:cardElevation="12dp"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".manager.Meeting_manager">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/conl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/tv_eportal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text="@string/meeting_creation"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@id/tv_title"
+            app:layout_constraintBottom_toTopOf="@id/et_title"
             android:textColor="@color/White"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/tv_title"
+            android:id="@+id/et_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -44,8 +44,8 @@
             android:importantForAutofill="no"
             android:inputType="text" />
 
-        <TextView
-            android:id="@+id/tv_link"
+        <EditText
+            android:id="@+id/et_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -56,7 +56,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/conl"
             app:layout_constraintStart_toStartOf="@id/conl"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/et_title"
             tools:hint="Insert zoom link here" />
 
         <TextView
@@ -70,7 +70,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/zoomicon"
             app:layout_constraintStart_toStartOf="@id/conl"
-            app:layout_constraintTop_toBottomOf="@id/tv_link" />
+            app:layout_constraintTop_toBottomOf="@id/et_link" />
 
         <ImageButton
             android:id="@+id/zoomicon"
@@ -79,7 +79,7 @@
             android:onClick="zoomicon"
             android:src="@drawable/zoom"
             app:layout_constraintEnd_toEndOf="@id/conl"
-            app:layout_constraintTop_toBottomOf="@id/tv_link"
+            app:layout_constraintTop_toBottomOf="@id/et_link"
             android:contentDescription="@string/zoom" />
 
         <Button

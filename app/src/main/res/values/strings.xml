@@ -38,7 +38,7 @@
     <string name="meeting_settings">Meeting Settings</string>
     <string name="update">Update</string>
     <string name="add_request">Add Request</string>
-    <string name="please_enter_your_email_addres">Please enter your email addres</string>
+    <string name="please_enter_your_email_address">Please enter your email address</string>
     <string name="enter_email_here">Enter email here</string>
     <string name="e_portal">E-Portal</string>
     <string name="userphoto">UserPhoto</string>
@@ -46,4 +46,7 @@
     <string name="click_on_the_icon_to_redirect_to_zoom">Click on the icon to redirect to zoom</string>
     <string name="meeting_creation">Meeting creation</string>
     <string name="zoom">zoom</string>
+    <string name="available_meetings">Available meetings</string>
+    <string name="title">Title</string>
+    <string name="link">Link</string>
 </resources>

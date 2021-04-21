@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.project.eportal.MeetingData;
 import com.project.eportal.R;
-import com.project.eportal.TasksData;
 
 import java.util.ArrayList;
 

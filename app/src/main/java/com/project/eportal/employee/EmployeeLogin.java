@@ -45,7 +45,7 @@ public class EmployeeLogin extends AppCompatActivity {
         String email = et_mail.getText().toString();
         String password = emp_pass.getText().toString();
 
-        if (email == null || password == null) {
+        if (email.equals("") || password.equals("")) {
             Toast.makeText(this, "Please enter a valid email and password", Toast.LENGTH_SHORT).show();
         } else {
             mAuth.signInWithEmailAndPassword(email, password)

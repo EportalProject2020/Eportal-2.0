@@ -46,7 +46,7 @@ public class Dashboard extends AppCompatActivity {
 
 
     public void joinMeeting(View view) {
-        Intent intent = new Intent(Dashboard.this,meeting_empolyee.class);
+        Intent intent = new Intent(Dashboard.this, meeting_employee.class);
         startActivity(intent);
     }
 

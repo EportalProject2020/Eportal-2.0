@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RetrievePDFActivity"></activity>
+        <activity android:name=".RetrievePDFActivity" />
         <activity android:name=".manager.GetItRequestActivity" />
         <activity android:name=".employee.MakeItRequestActivity" />
         <activity android:name=".employee.GetTasksActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Forgetpassword" />
         <activity android:name=".manager.MakeTasksActivity" />
-        <activity android:name=".employee.meeting_empolyee" />
+        <activity android:name=".employee.meeting_employee" />
         <activity android:name=".manager.Meeting_manager" />
         <activity android:name=".calendar.activities.Calendar" />
         <activity android:name=".manager.ManagerDashboard" />

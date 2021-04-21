@@ -23,6 +23,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColor="@color/Black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/title"/>
+            <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,6 +40,14 @@
                 android:textStyle="bold"
                 tools:hint="Title will be here soon" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textColor="@color/Black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/link"/>
             <TextView
                 android:id="@+id/tv_link"
                 android:layout_width="match_parent"
