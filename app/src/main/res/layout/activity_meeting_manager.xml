@@ -1,38 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".manager.Meeting_manager">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="32dp"
+    app:cardElevation="12dp"
+    android:background="@drawable/background">
 
-    <Button
-        android:id="@+id/btn_createmeeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="createMeeting"
-        android:text="@string/create_meeting"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@+id/btn_createmeeting"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_eportal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/meeting_creation"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_title"
+            android:textColor="@color/White"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_meeting"
+        <EditText
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/list_item_manager"/>
+            android:layout_margin="8dp"
+            android:padding="16dp"
+            android:textColor="@color/Black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/conl"
+            app:layout_constraintStart_toStartOf="@id/conl"
+            app:layout_constraintTop_toTopOf="@id/conl"
+            app:layout_constraintBottom_toTopOf="@id/btn_createmeeting"
+            tools:hint="Enter title here" />
 
+        <TextView
+            android:id="@+id/tv_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:padding="32dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/conl"
+            app:layout_constraintStart_toStartOf="@id/conl"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:hint="Insert zoom link here" />
 
-    </FrameLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_redirect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/click_on_the_icon_to_redirect_to_zoom"
+            android:textColor="#A9000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/zoomicon"
+            app:layout_constraintStart_toStartOf="@id/conl"
+            app:layout_constraintTop_toBottomOf="@id/tv_link" />
 
+        <ImageButton
+            android:id="@+id/zoomicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="zoomicon"
+            android:src="@drawable/zoom"
+            app:layout_constraintEnd_toEndOf="@id/conl"
+            app:layout_constraintTop_toBottomOf="@id/tv_link" />
+
+        <Button
+            android:id="@+id/btn_createmeeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_button"
+            android:onClick="createMeeting"
+            android:padding="16dp"
+            android:text="@string/create_meeting"
+            android:textAllCaps="false"
+            android:textColor="@color/Black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@id/conl"
+            app:layout_constraintEnd_toEndOf="@id/conl"
+            app:layout_constraintStart_toStartOf="@id/conl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

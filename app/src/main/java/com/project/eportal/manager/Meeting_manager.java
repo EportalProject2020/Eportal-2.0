@@ -43,8 +43,12 @@ public class Meeting_manager extends AppCompatActivity {
 
     }
 
-    public void createMeeting(View view) {
+    public void zoomicon(View view) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("https://zoom.com/")) ;
         startActivity(intent);
+    }
+
+    public void createMeeting(View view) {
+
     }
 }

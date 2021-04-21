@@ -43,4 +43,6 @@
     <string name="e_portal">E-Portal</string>
     <string name="userphoto">UserPhoto</string>
     <string name="managerphoto">managerphoto</string>
+    <string name="click_on_the_icon_to_redirect_to_zoom">Click on the icon to redirect to zoom</string>
+    <string name="meeting_creation">Meeting creation</string>
 </resources>
