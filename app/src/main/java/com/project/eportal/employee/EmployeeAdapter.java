@@ -33,9 +33,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.MyView
         holder.setOnclickListener(new MyViewHolder.ClickListener(){
             @Override
             public void onItemClick(View view, int position) {
-                String title = meetingData.get(position).getTitle();
-                String link = meetingData.get(position).getLink();
-                Toast.makeText(meetingEmployee, title+"\n"+ link, Toast.LENGTH_SHORT).show();
+                Toast.makeText(meetingEmployee, "Redirecting to zoom", Toast.LENGTH_SHORT).show();
             }
         });
         return holder;
