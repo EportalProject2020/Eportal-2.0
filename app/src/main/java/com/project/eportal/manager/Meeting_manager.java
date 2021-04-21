@@ -23,24 +23,6 @@ public class Meeting_manager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_manager);
 
-        ArrayList<MeetingData> meetingData = new ArrayList<>();
-
-        meetingData.add(new MeetingData("Today's meeting at 5 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 7 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 8 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 7 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 7 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 7 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 7 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 7 PM","https://zoom.com/"));
-        meetingData.add(new MeetingData("Today's meeting at 7 PM","https://zoom.com/"));
-
-        ManagerAdapter adapter = new ManagerAdapter(meetingData);
-        RecyclerView rv = findViewById(R.id.rv_meeting);
-        LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.VERTICAL,true);
-        rv.setLayoutManager(manager);
-        rv.setAdapter(adapter);
-
     }
 
     public void zoomicon(View view) {
