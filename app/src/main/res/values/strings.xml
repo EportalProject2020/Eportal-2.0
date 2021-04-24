@@ -56,4 +56,8 @@
     <string name="description">Description</string>
     <string name="enter_description_here">Enter description here</string>
     <string name="users_requests">Users Requests</string>
+    <string name="names_will_be_here_soon">Names will be here soon</string>
+    <string name="title_will_be_here_soon">Title will be here soon</string>
+    <string name="description_will_be_here_soon">Description will be here soon</string>
+    <string name="remove_request">remove request</string>
 </resources>

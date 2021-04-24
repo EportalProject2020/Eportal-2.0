@@ -35,13 +35,13 @@ public class meeting_employee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_empolyee);
 
-        db=FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
         recyclerView = findViewById(R.id.rv_meeting);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        progressDialog= new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         showData();
 
     }
@@ -57,13 +57,13 @@ public class meeting_employee extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         progressDialog.dismiss();
-                        for (DocumentSnapshot item:task.getResult()){
+                        for (DocumentSnapshot item : task.getResult()) {
                             MeetingData data = new MeetingData(
                                     item.getString("title")
-                                    ,item.getString("description"));
+                                    , item.getString("description"));
                             meetingData.add(data);
                         }
-                        adapter = new EmployeeAdapter(meeting_employee.this,meetingData);
+                        adapter = new EmployeeAdapter(meeting_employee.this, meetingData);
                         recyclerView.setAdapter(adapter);
                     }
                 })

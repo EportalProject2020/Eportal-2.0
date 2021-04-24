@@ -37,6 +37,7 @@ public class ManagerItRequestActivity extends AppCompatActivity {
 
     public void Users_requests(View view) {
         Intent intent = new Intent(ManagerItRequestActivity.this, UsersRequests.class);
+        startActivity(intent);
     }
 
     public void addrequest(View view) {

@@ -1,4 +1,4 @@
-package com.project.eportal.manager;
+package com.project.eportal;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -10,16 +10,14 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.project.eportal.MeetingData;
-import com.project.eportal.R;
 
 import java.util.ArrayList;
 
-public class ManagerAdapter extends RecyclerView.Adapter<ManagerAdapter.MyViewHolder> {
+public class UserRequestAdapterForIT extends RecyclerView.Adapter<UserRequestAdapterForIT.MyViewHolder> {
 
     ArrayList<MeetingData> meetingData;
 
-    public ManagerAdapter(ArrayList<MeetingData> meetingData) {
+    public UserRequestAdapterForIT(ArrayList<MeetingData> meetingData) {
         this.meetingData = meetingData;
 
     }
@@ -27,9 +25,8 @@ public class ManagerAdapter extends RecyclerView.Adapter<ManagerAdapter.MyViewHo
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_manager, parent, false);
-        MyViewHolder holder = new MyViewHolder(v);
-        return holder;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_userrequest_for_it, parent, false);
+        return new MyViewHolder(v);
     }
 
     @Override
@@ -48,9 +45,6 @@ public class ManagerAdapter extends RecyclerView.Adapter<ManagerAdapter.MyViewHo
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
-                            case R.id.menu_update:
-                                Toast.makeText(view.getContext(), "Meeting data has been updated", Toast.LENGTH_SHORT).show();
-                                break;
                             case R.id.menu_delete:
                                 Toast.makeText(view.getContext(), "Meeting has been deleted", Toast.LENGTH_SHORT).show();
                                 deleteItem(position);
