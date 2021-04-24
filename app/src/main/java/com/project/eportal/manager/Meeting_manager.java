@@ -60,7 +60,6 @@ public class Meeting_manager extends AppCompatActivity {
             String meetingId = UUID.randomUUID().toString();
 
         Map<String, Object> items = new HashMap<>();
-//        items.put("id", meetingId);
         items.put("title", title);
         items.put("description", link);
 
