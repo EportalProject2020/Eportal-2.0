@@ -6,7 +6,6 @@ import com.google.firebase.firestore.ServerTimestamp;
 import java.util.Date;
 @IgnoreExtraProperties
 public class MeetingData {
-    private String id;
     private String title;
     private String link;
     private @ServerTimestamp Date timestamp;
