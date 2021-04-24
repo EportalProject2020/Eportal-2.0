@@ -4,6 +4,19 @@ public class TasksData {
 
     private String TaskTitle;
     private String TaskDesc;
+    private String TaskId;
+
+    public String getTaskId() {
+        return TaskId;
+    }
+
+    public void setTaskId(String taskId) {
+        TaskId = taskId;
+    }
+
+    public TasksData(String taskId) {
+        TaskId = taskId;
+    }
 
     public TasksData(String taskTitle, String taskDesc) {
         TaskTitle = taskTitle;
