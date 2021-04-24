@@ -44,9 +44,9 @@ public class Meeting_manager extends AppCompatActivity {
     }
 
     public void createMeeting(View view) {
+
         et_title = findViewById(R.id.et_title);
         et_link = findViewById(R.id.et_link);
-
 
         String title = et_title.getText().toString();
         String link = et_link.getText().toString();
@@ -54,7 +54,7 @@ public class Meeting_manager extends AppCompatActivity {
     }
 
     private void uploadData(String title, String link) {
-        progressDialog.setTitle("Adding data to Firestore");
+        progressDialog.setTitle("Adding meeting");
         progressDialog.show();
 
             String meetingId = UUID.randomUUID().toString();

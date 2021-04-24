@@ -60,8 +60,8 @@ public class ManagerDashboard extends AppCompatActivity {
     }
 
 
-    public void addSchedule(View view) {
-        Intent intent = new Intent(ManagerDashboard.this, GetTasksActivity.class);
+    public void ITRequest(View view) {
+        Intent intent = new Intent(ManagerDashboard.this, ManagerItRequestActivity.class);
         startActivity(intent);
     }
 }

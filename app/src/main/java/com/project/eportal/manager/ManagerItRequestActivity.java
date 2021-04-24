@@ -1,9 +1,10 @@
-package com.project.eportal.employee;
+package com.project.eportal.manager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,14 +15,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.R;
-import com.project.eportal.manager.Meeting_manager;
+import com.project.eportal.employee.MakeItRequestActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class MakeItRequestActivity extends AppCompatActivity {
-
+public class ManagerItRequestActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseFirestore db ;
     EditText et_name,et_title,et_description;
@@ -29,10 +29,14 @@ public class MakeItRequestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_it_request);
+        setContentView(R.layout.activity_manager_it_request);
 
         progressDialog = new ProgressDialog(this);
         db = FirebaseFirestore.getInstance();
+    }
+
+    public void Users_requests(View view) {
+        Intent intent = new Intent(ManagerItRequestActivity.this, UsersRequests.class);
     }
 
     public void addrequest(View view) {
@@ -48,32 +52,29 @@ public class MakeItRequestActivity extends AppCompatActivity {
     }
 
     private void uploadData(String name, String title, String description) {
-
         progressDialog.setTitle("Adding your request ");
         progressDialog.show();
         String requestId = UUID.randomUUID().toString();
 
-        Map<String, Object> ITRequestuser = new HashMap<>();
-        ITRequestuser.put("name", name);
-        ITRequestuser.put("title", title);
-        ITRequestuser.put("description", description);
+        Map<String, Object> ITRequestmanager = new HashMap<>();
+        ITRequestmanager.put("name", name);
+        ITRequestmanager.put("title", title);
+        ITRequestmanager.put("description", description);
 
 
-        db.collection("ITRequestuser").document(requestId).set(ITRequestuser)
+        db.collection("ITRequestManager").document(requestId).set(ITRequestmanager)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
-                        Toast.makeText(MakeItRequestActivity.this, "Request has been added", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ManagerItRequestActivity.this, "Request has been added", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MakeItRequestActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ManagerItRequestActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
-
 }

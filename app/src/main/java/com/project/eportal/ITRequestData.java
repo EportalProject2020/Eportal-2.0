@@ -5,6 +5,7 @@ public class ITRequestData {
     private String name;
     private String requestTitle;
     private String requestDescription;
+    private String requestID;
 
     public ITRequestData(String name, String requestTitle, String requestDescription) {
         this.name = name;
