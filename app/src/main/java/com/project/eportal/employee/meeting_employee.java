@@ -27,7 +27,6 @@ public class meeting_employee extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     FirebaseFirestore db;
-
     EmployeeAdapter adapter;
     ProgressDialog progressDialog;
 

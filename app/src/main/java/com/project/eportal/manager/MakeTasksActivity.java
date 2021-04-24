@@ -14,10 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -25,10 +28,16 @@ import com.google.firebase.storage.UploadTask;
 import com.project.eportal.PutPdf;
 import com.project.eportal.R;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 public class MakeTasksActivity extends AppCompatActivity {
 
-    EditText editText;
-    Button btn;
+    EditText editText, editTextTitle, editTextDescription;
+    Button btn, btnSaveData;
+    ProgressDialog pd;
+    FirebaseFirestore db;
 
     StorageReference storageReference;
     DatabaseReference databaseReference;
@@ -40,6 +49,28 @@ public class MakeTasksActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.edit_text);
         btn = findViewById(R.id.btn);
+        btnSaveData = findViewById(R.id.btn_save_data);
+        editTextDescription = findViewById(R.id.edt_task_desc);
+        editTextTitle = findViewById(R.id.edt_task_title);
+
+        pd = new ProgressDialog(this);
+
+        db = FirebaseFirestore.getInstance();
+
+
+        btnSaveData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String taskTitle = editTextTitle.getText().toString().trim();
+                String taskDesc = editTextDescription.getText().toString().trim();
+
+                uploadData(taskTitle, taskDesc);
+            }
+        });
+        {
+
+        }
+
 
         storageReference = FirebaseStorage.getInstance().getReference("Task PDF");
         databaseReference = FirebaseDatabase.getInstance().getReference("Task PDF");
@@ -50,10 +81,43 @@ public class MakeTasksActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-           selectPDF();
+                selectPDF();
 
             }
         });
+    }
+
+    private void uploadData(String taskTitle, String taskDesc) {
+
+        pd.setTitle("Sending Tasks To Employees");
+        pd.show();
+
+        String taskId = UUID.randomUUID().toString();
+
+
+        Map<String, Object> items = new HashMap<>();
+
+        items.put("id", taskId);
+        items.put("title", taskTitle);
+        items.put("description", taskDesc);
+
+        db.collection("todo").document(taskId).set(items)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        pd.dismiss();
+                        Toast.makeText(MakeTasksActivity.this, "Tasks has been sent to employees", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MakeTasksActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
     }
 
     private void selectPDF() {
@@ -61,26 +125,26 @@ public class MakeTasksActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("application/pdf");
         intent.setAction(intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"PDF SELECT FILE"),12);
+        startActivityForResult(Intent.createChooser(intent, "PDF SELECT FILE"), 12);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==12 && resultCode ==RESULT_OK && data != null && data.getData()!=null){
+        if (requestCode == 12 && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             btn.setEnabled(true);
             editText.setText(data.getDataString()
-                    .substring(data.getDataString().lastIndexOf("/")+1));
+                    .substring(data.getDataString().lastIndexOf("/") + 1));
 
-                btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                        uploadPDFFileFirebase(data.getData());
-                    }
-                });
+                    uploadPDFFileFirebase(data.getData());
+                }
+            });
 
         }
     }
@@ -123,5 +187,5 @@ public class MakeTasksActivity extends AppCompatActivity {
     }
 
 
-    }
+}
 

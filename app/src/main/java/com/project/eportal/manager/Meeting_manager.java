@@ -26,7 +26,7 @@ import java.util.UUID;
 
 public class Meeting_manager extends AppCompatActivity {
 
-    FirebaseFirestore db ;
+    FirebaseFirestore db;
     ProgressDialog progressDialog;
     EditText et_title, et_link;
 
@@ -57,7 +57,7 @@ public class Meeting_manager extends AppCompatActivity {
         progressDialog.setTitle("Adding data to Firestore");
         progressDialog.show();
 
-            String meetingId = UUID.randomUUID().toString();
+        String meetingId = UUID.randomUUID().toString();
 
         Map<String, Object> items = new HashMap<>();
 //        items.put("id", meetingId);
