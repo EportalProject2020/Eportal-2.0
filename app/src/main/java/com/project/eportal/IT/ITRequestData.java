@@ -1,10 +1,19 @@
-package com.project.eportal;
+package com.project.eportal.IT;
 
 public class ITRequestData {
 
     private String name;
     private String requestTitle;
     private String requestDescription;
+
+    public String getRequestID() {
+        return requestID;
+    }
+
+    public void setRequestID(String requestID) {
+        this.requestID = requestID;
+    }
+
     private String requestID;
 
     public ITRequestData(String name, String requestTitle, String requestDescription) {

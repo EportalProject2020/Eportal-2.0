@@ -60,4 +60,9 @@
     <string name="title_will_be_here_soon">Title will be here soon</string>
     <string name="description_will_be_here_soon">Description will be here soon</string>
     <string name="remove_request">remove request</string>
+    <string name="if_you_are_an_it_click_here">If you are an IT click here</string>
+    <string name="it_login">IT Login</string>
+    <string name="admin_request">Admin Request</string>
+    <string name="admin_requests">Admin Requests</string>
+    <string name="managers_requests">Managers Requests</string>
 </resources>

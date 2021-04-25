@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".manager.UsersRequests"></activity>
+        <activity android:name=".IT.ManagerRequestForIT"></activity>
+        <activity android:name=".IT.UsersRequestforIT" />
+        <activity android:name=".IT.ITDashboard" />
+        <activity android:name=".IT.ITLogin" />
+        <activity android:name=".manager.UsersRequests" />
         <activity android:name=".RetrievePDFActivity" />
         <activity android:name=".manager.ManagerItRequestActivity" />
         <activity android:name=".employee.MakeItRequestActivity" />

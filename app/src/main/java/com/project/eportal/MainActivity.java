@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
+import com.project.eportal.IT.ITLogin;
 import com.project.eportal.employee.EmployeeLogin;
 import com.project.eportal.manager.AdminLogin;
-import com.project.eportal.manager.ManagerDashboard;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseAnalytics firebaseAnalytics ;
-        firebaseAnalytics= FirebaseAnalytics.getInstance(this);
+
     }
 
     public void UserButton(View view) {
@@ -33,4 +31,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void youareIT(View view) {
+        Intent intent = new Intent(MainActivity.this, ITLogin.class);
+        startActivity(intent);
+    }
 }
