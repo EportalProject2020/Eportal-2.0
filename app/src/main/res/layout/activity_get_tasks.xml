@@ -7,6 +7,10 @@
     android:orientation="vertical"
     android:background="@drawable/background"
     tools:context=".employee.GetTasksActivity">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    tools:ignore="MissingConstraints">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_tasks"
@@ -16,6 +20,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+</ScrollView>
+
 
     <TextView
         android:id="@+id/edit_text_employee"
