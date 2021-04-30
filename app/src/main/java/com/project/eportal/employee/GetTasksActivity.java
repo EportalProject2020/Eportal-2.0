@@ -47,6 +47,8 @@ public class GetTasksActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        pd = new ProgressDialog(this);
+
         showData();
 
     }
