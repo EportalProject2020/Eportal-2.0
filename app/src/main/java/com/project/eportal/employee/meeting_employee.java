@@ -52,6 +52,7 @@ public class meeting_employee extends AppCompatActivity {
         progressDialog.show();
 
         db.collection("items")
+
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <FrameLayout
+    <ScrollView
         android:id="@+id/fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,6 +38,6 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </FrameLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

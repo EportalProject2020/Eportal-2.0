@@ -52,7 +52,6 @@ public class Splash extends AwesomeSplash {
         configSplash.setAnimTitleDuration(1000);
         configSplash.setAnimTitleTechnique(Techniques.SlideOutUp);
 //        configSplash.setTitleFont("Cursive"); //provide string to your font located in assets/fonts/
-
     }
 
 
@@ -62,5 +61,6 @@ public class Splash extends AwesomeSplash {
 
         Intent intent = new Intent(Splash.this,MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

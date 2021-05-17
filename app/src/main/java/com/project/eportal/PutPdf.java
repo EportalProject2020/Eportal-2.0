@@ -5,8 +5,7 @@ public class PutPdf {
     public String name;
     public String url;
 
-    public PutPdf() {
-    }
+
 
     public PutPdf(String name, String url) {
         this.name = name;

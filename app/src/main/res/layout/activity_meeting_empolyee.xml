@@ -8,7 +8,6 @@
     tools:context=".employee.meeting_employee">
 
 
-
     <TextView
         android:id="@+id/tv_availablemeeting"
         android:layout_width="wrap_content"
@@ -16,16 +15,15 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="@string/available_meetings"
         android:paddingVertical="16dp"
+        android:text="@string/available_meetings"
         android:textColor="@color/White"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
+    <ScrollView
         android:id="@+id/fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +34,6 @@
             android:id="@+id/rv_meeting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </FrameLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
