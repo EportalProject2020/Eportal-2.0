@@ -1,6 +1,5 @@
 package com.project.eportal.IT;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.eportal.R;
-import com.project.eportal.manager.ManagerItRequestActivity;
-import com.project.eportal.manager.UserRequestAdapterforManager;
 
 import java.util.List;
 
@@ -20,7 +17,6 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
 
     List<ITRequestData> itRequestDataList;
     ManagerRequestForIT managerRequestForIT;
-
 
 
     public ManagerRequestAdapterForIT(ManagerRequestForIT managerRequestForIT, List<ITRequestData> itRequestDataList) {
@@ -46,7 +42,7 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                managerRequestForIT.deleteData(position);
+               itRequestDataList.remove(itRequestDataList.get(position));
             }
         });
     }
@@ -63,26 +59,16 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
         private final TextView textView_description;
         private final ImageButton imageButton;
         View mView;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.textView_title = itemView.findViewById(R.id.tv_title);
             this.textView_name = itemView.findViewById(R.id.tv_name);
             this.textView_description = itemView.findViewById(R.id.tv_description);
             this.imageButton = itemView.findViewById(R.id.imageButton);
-//            mView = itemView;
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    mClickListener.onItemClick(v,getAdapterPosition());
-//                }
-//            });
+
         }
-//        private ViewHolder.ClickListener mClickListener;
-//        public interface ClickListener{
-//            void onItemClick(View view,int position);
-//        }
-//        public void setOnclickListener(ViewHolder.ClickListener clickListener){
-//            mClickListener= clickListener;
-//        }
+
     }
 }

@@ -73,6 +73,7 @@ public class ManagerRequestForIT extends AppCompatActivity {
                     }
                 });
     }
+
     public void deleteData(int index){
         progressDialog.setTitle("Deleting request");
         progressDialog.show();
@@ -88,7 +89,7 @@ public class ManagerRequestForIT extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
+                        Toast.makeText(ManagerRequestForIT.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
