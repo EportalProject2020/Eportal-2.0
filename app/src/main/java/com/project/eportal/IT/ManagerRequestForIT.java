@@ -1,13 +1,13 @@
 package com.project.eportal.IT;
 
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,6 +19,7 @@ import com.project.eportal.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ManagerRequestForIT extends AppCompatActivity {
     List<ITRequestData> itRequestDataList = new ArrayList<>();
@@ -27,6 +28,7 @@ public class ManagerRequestForIT extends AppCompatActivity {
     FirebaseFirestore db;
     ManagerRequestAdapterForIT adapter;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +40,11 @@ public class ManagerRequestForIT extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
         progressDialog = new ProgressDialog(this);
         showData();
     }
 
-    private void showData() {
+    public void showData() {
         progressDialog.setTitle("Loading data...");
         progressDialog.show();
 
@@ -54,14 +55,14 @@ public class ManagerRequestForIT extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         itRequestDataList.clear();
                         progressDialog.dismiss();
-                        for (DocumentSnapshot documentSnapshot:task.getResult()){
+                        for (DocumentSnapshot documentSnapshot : Objects.requireNonNull(task.getResult())) {
                             ITRequestData data = new ITRequestData(
                                     documentSnapshot.getString("name"),
                                     documentSnapshot.getString("title"),
                                     documentSnapshot.getString("description"));
                             itRequestDataList.add(data);
                         }
-                        adapter = new ManagerRequestAdapterForIT(ManagerRequestForIT.this,itRequestDataList);
+                        adapter = new ManagerRequestAdapterForIT(ManagerRequestForIT.this, itRequestDataList);
                         recyclerView.setAdapter(adapter);
                     }
                 })
@@ -73,23 +74,22 @@ public class ManagerRequestForIT extends AppCompatActivity {
                     }
                 });
     }
-
-    public void deleteData(int index){
-        progressDialog.setTitle("Deleting request");
-        progressDialog.show();
-        db.collection("ITRequestManager").document(itRequestDataList.get(index).getRequestID())
+    public void deleteData(int position) {
+//        progressDialog.setTitle("Deleting...");
+//        progressDialog.dismiss();
+        db.collection("ITRequestManager").document(itRequestDataList.get(position).getRequestID())
                 .delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(ManagerRequestForIT.this, "Deleted...", Toast.LENGTH_SHORT).show();
+//                         Toast.makeText(ManagerRequestForIT.this, "Deleted...", Toast.LENGTH_SHORT).show();
                         showData();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ManagerRequestForIT.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(ManagerRequestForIT.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -1,14 +1,21 @@
 package com.project.eportal.IT;
 
+import android.app.ProgressDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.R;
 
 import java.util.List;
@@ -24,6 +31,7 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
         this.managerRequestForIT = managerRequestForIT;
     }
 
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,7 +42,7 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ManagerRequestAdapterForIT.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ManagerRequestAdapterForIT.ViewHolder holder, final int position) {
 
         holder.textView_name.setText(itRequestDataList.get(position).getName());
         holder.textView_title.setText(itRequestDataList.get(position).getRequestTitle());
@@ -42,7 +50,7 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-               itRequestDataList.remove(itRequestDataList.get(position));
+                managerRequestForIT.deleteData(position);
             }
         });
     }
@@ -59,7 +67,6 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
         private final TextView textView_description;
         private final ImageButton imageButton;
         View mView;
-
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

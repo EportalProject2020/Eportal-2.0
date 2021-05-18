@@ -45,8 +45,8 @@ public class UserRequestAdapterForIT extends RecyclerView.Adapter<UserRequestAda
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-
-                usersRequestforIT.deleteData(position);
+                deleteItem(position);
+//                usersRequestforIT.deleteData(position);
 //                PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
 //                popupMenu.getMenuInflater().inflate(R.menu.menu_item, popupMenu.getMenu());
 //                popupMenu.show();
@@ -88,12 +88,11 @@ public class UserRequestAdapterForIT extends RecyclerView.Adapter<UserRequestAda
         }
     }
 
-//    private void deleteItem(final int position) {
-//        meetingData.remove(position);
-//        notifyItemRemoved(position);
-//        notifyItemRangeChanged(position, meetingData.size());
-//
-//    }
+    private void deleteItem(final int position) {
+        itRequestDataList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, itRequestDataList.size());
 
+    }
 
 }
