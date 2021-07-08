@@ -36,8 +36,7 @@ public class ITLogin extends AppCompatActivity {
     }
 
     public void Login(View view) {
-        Intent intent = new Intent(ITLogin.this, ITDashboard.class);
-        startActivity(intent);
+
 //        FirebaseApp.initializeApp(this);
 //
 //        final FirebaseAuth mAuth;
@@ -47,29 +46,7 @@ public class ITLogin extends AppCompatActivity {
 //        EditText emp_pass = findViewById(R.id.IT_pass);
 //        String email = et_mail.getText().toString();
 //        String password = emp_pass.getText().toString();
-//
-//        if (email.equals("") || password.equals("")) {
-//            Toast.makeText(this, "Please enter a valid email and password", Toast.LENGTH_SHORT).show();
-//        } else {
-//            mAuth.signInWithEmailAndPassword(email, password)
-//                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//                            if (task.isSuccessful()) {
-//                                FirebaseUser user = mAuth.getCurrentUser();
-//                                Intent intent = new Intent(ITLogin.this, ITDashboard.class);
-//                                startActivity(intent);
-//                                finish();
-//                            } else {
-//                                // If sign in fails, display a message to the user.
-//                                Toast.makeText(ITLogin.this, "Re-check the email and password you entered",
-//                                        Toast.LENGTH_SHORT).show();
-//
-//
-//                            }
-//                        }
-//                    });
-//        }
-
+        Intent intent = new Intent(ITLogin.this, ITDashboard.class);
+        startActivity(intent);
     }
 }

@@ -2,10 +2,22 @@ package com.project.eportal.employee;
 
 public class UserData {
 
+
+
     private String email;
     private String name;
     private String password;
     private String id;
+
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getName() {
         return name;
@@ -31,10 +43,4 @@ public class UserData {
         this.id = id;
     }
 
-    public UserData(String email, String name, String password, String id) {
-        this.email = email;
-        this.name = name;
-        this.password = password;
-        this.id = id;
-    }
 }

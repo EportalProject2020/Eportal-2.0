@@ -10,7 +10,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".IT.AddUser">
+    tools:context=".IT.Add">
 
     <TextView
         android:paddingVertical="8dp"
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter name"
+        android:hint="@string/enter_name"
         android:textColor="@color/Black"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -66,12 +66,11 @@
 
     <EditText
         android:paddingTop="8dp"
-        android:id="@+id/tv_description"
+        android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"
-        android:autoLink="web"
         android:clickable="true"
         android:hint="@string/enter_password"
         android:padding="8dp"

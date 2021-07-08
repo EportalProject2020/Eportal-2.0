@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.project.eportal.R;
-import com.project.eportal.manager.ManagerItRequestActivity;
 
 public class ITDashboard extends AppCompatActivity {
 
@@ -29,7 +28,8 @@ public class ITDashboard extends AppCompatActivity {
     }
 
     public void AddUser(View view) {
-        Intent intent = new Intent(ITDashboard.this,AddUser.class);
+        Intent intent = new Intent(ITDashboard.this, Add.class);
+        intent.putExtra("Add", "0");
         startActivity(intent);
     }
 
