@@ -61,7 +61,8 @@ public class UsersRequestforIT extends AppCompatActivity {
                             ITRequestData data = new ITRequestData(
                                     documentSnapshot.getString("name"),
                                     documentSnapshot.getString("title"),
-                                    documentSnapshot.getString("description"));
+                                    documentSnapshot.getString("description"),
+                                    documentSnapshot.getString("ID"));
                             itRequestDataList.add(data);
                         }
                         adapter = new UserRequestAdapterForIT(UsersRequestforIT.this,itRequestDataList);

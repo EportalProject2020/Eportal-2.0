@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IT.ManagerRequestForIT"></activity>
+        <activity android:name=".IT.AddManager"></activity>
+        <activity android:name=".IT.AddUser" />
+        <activity android:name=".IT.ManagerRequestForIT" />
         <activity android:name=".IT.UsersRequestforIT" />
         <activity android:name=".IT.ITDashboard" />
         <activity android:name=".IT.ITLogin" />

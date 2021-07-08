@@ -58,11 +58,11 @@ public class ManagerItRequestActivity extends AppCompatActivity {
         String requestId = UUID.randomUUID().toString();
 
         Map<String, Object> ITRequestmanager = new HashMap<>();
+        ITRequestmanager.put("ID",requestId);
         ITRequestmanager.put("name", name);
         ITRequestmanager.put("title", title);
         ITRequestmanager.put("description", description);
-
-
+        Toast.makeText(this, requestId+"1212", Toast.LENGTH_SHORT).show();
         db.collection("ITRequestManager").document(requestId).set(ITRequestmanager)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

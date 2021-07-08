@@ -70,8 +70,6 @@ public class MakeTasksActivity extends AppCompatActivity {
         {
 
         }
-
-
         storageReference = FirebaseStorage.getInstance().getReference("Task PDF");
         databaseReference = FirebaseDatabase.getInstance().getReference("Task PDF");
 
@@ -93,8 +91,6 @@ public class MakeTasksActivity extends AppCompatActivity {
         pd.show();
 
         String taskId = UUID.randomUUID().toString();
-
-
         Map<String, Object> items = new HashMap<>();
 
         items.put("id", taskId);
@@ -124,7 +120,7 @@ public class MakeTasksActivity extends AppCompatActivity {
 
         Intent intent = new Intent();
         intent.setType("application/pdf");
-        intent.setAction(intent.ACTION_GET_CONTENT);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "PDF SELECT FILE"), 12);
     }
 

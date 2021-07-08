@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,7 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.R;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,7 +60,6 @@ public class Meeting_manager extends AppCompatActivity {
         Map<String, Object> items = new HashMap<>();
         items.put("title", title);
         items.put("description", link);
-
 
         db.collection("items").document(meetingId).set(items)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -15,6 +15,9 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.Forgetpassword;
 import com.project.eportal.MainActivity;
 import com.project.eportal.R;
@@ -36,36 +39,20 @@ public class EmployeeLogin extends AppCompatActivity {
 
     public void Login(View view) {
         FirebaseApp.initializeApp(this);
+        FirebaseDatabase database;
+        DatabaseReference mDatabase;
+        FirebaseAuth mAuth;
 
-        final FirebaseAuth mAuth;
-        mAuth = FirebaseAuth.getInstance();
+
 
         EditText et_mail = findViewById(R.id.emp_mail);
         EditText emp_pass = findViewById(R.id.emp_pass);
         String email = et_mail.getText().toString();
         String password = emp_pass.getText().toString();
+        database = FirebaseDatabase.getInstance();
+        mDatabase = database.getReference("USER");
+        mAuth = FirebaseAuth.getInstance();
 
-        if (email.equals("") || password.equals("")) {
-            Toast.makeText(this, "Please enter a valid email and password", Toast.LENGTH_SHORT).show();
-        } else {
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Intent intent = new Intent(EmployeeLogin.this, Dashboard.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Toast.makeText(EmployeeLogin.this, "Re-check the email and password you entered", Toast.LENGTH_SHORT).show();
-
-
-                            }
-                        }
-                    });
-        }
     }
 
     public void forgot_pass(View view) {

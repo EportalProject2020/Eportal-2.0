@@ -27,4 +27,12 @@ public class ITDashboard extends AppCompatActivity {
         Intent intent = new Intent(ITDashboard.this, ManagerRequestForIT.class);
         startActivity(intent);
     }
+
+    public void AddUser(View view) {
+        Intent intent = new Intent(ITDashboard.this,AddUser.class);
+        startActivity(intent);
+    }
+
+    public void AddManager(View view) {
+    }
 }

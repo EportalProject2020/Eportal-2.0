@@ -54,10 +54,10 @@ public class MakeItRequestActivity extends AppCompatActivity {
         String requestId = UUID.randomUUID().toString();
 
         Map<String, Object> ITRequestuser = new HashMap<>();
+        ITRequestuser.put("ID", requestId);
         ITRequestuser.put("name", name);
         ITRequestuser.put("title", title);
         ITRequestuser.put("description", description);
-
 
         db.collection("ITRequestuser").document(requestId).set(ITRequestuser)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

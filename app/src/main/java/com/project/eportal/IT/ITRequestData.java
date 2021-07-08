@@ -5,6 +5,15 @@ public class ITRequestData {
     private String name;
     private String requestTitle;
     private String requestDescription;
+    private String requestedid;
+
+    public ITRequestData(String name, String title, String description, String requestedid) {
+        this.name = name;
+        this.requestTitle = title;
+        this.requestDescription = description;
+        this.requestedid = requestedid;
+    }
+
 
     public String getRequestID() {
         return requestID;
@@ -15,12 +24,6 @@ public class ITRequestData {
     }
 
     private String requestID;
-
-    public ITRequestData(String name, String requestTitle, String requestDescription) {
-        this.name = name;
-        this.requestTitle = requestTitle;
-        this.requestDescription = requestDescription;
-    }
 
     public String getName() {
         return name;

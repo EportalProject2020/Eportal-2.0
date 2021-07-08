@@ -43,7 +43,8 @@ public class AdminLogin extends AppCompatActivity {
         String email = admin_mail.getText().toString();
         String password = admin_pass.getText().toString();
         if (email == null || password == null) {
-            Toast.makeText(this, "Please enter a valid email and password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a valid email and password",
+                    Toast.LENGTH_SHORT).show();
         } else {
             final FirebaseAuth mAuth;
             mAuth = FirebaseAuth.getInstance();
@@ -53,16 +54,18 @@ public class AdminLogin extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
+                                // Sign in success,
 
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                Intent intent = new Intent(AdminLogin.this, ManagerDashboard.class);
+                                Intent intent = new Intent(AdminLogin.this,
+                                        ManagerDashboard.class);
                                 startActivity(intent);
                                 finish();
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(AdminLogin.this, "Re-check the email and password you entered", Toast.LENGTH_SHORT).show();
-
+                                Toast.makeText(AdminLogin.this,
+                                        "Re-check the email and password you entered"
+                                        , Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
