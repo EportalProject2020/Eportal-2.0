@@ -34,5 +34,7 @@ public class ITDashboard extends AppCompatActivity {
     }
 
     public void AddManager(View view) {
+        Intent intent = new Intent(ITDashboard.this, AddManager.class);
+        startActivity(intent);
     }
 }
