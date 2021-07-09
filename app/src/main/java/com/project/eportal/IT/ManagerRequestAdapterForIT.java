@@ -1,20 +1,15 @@
 package com.project.eportal.IT;
 
-import android.app.ProgressDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.R;
 
@@ -31,13 +26,11 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
         this.managerRequestForIT = managerRequestForIT;
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_userrequest_for_it, parent, false);
         ViewHolder holder = new ViewHolder(v);
-
         return holder;
     }
 
@@ -47,10 +40,12 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
         holder.textView_name.setText(itRequestDataList.get(position).getName());
         holder.textView_title.setText(itRequestDataList.get(position).getRequestTitle());
         holder.textView_description.setText(itRequestDataList.get(position).getRequestDescription());
+
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                managerRequestForIT.deleteData(position);
+
+                deleteItem(position , itRequestDataList.get(position).getRequestID());
             }
         });
     }
@@ -77,5 +72,12 @@ public class ManagerRequestAdapterForIT extends RecyclerView.Adapter<ManagerRequ
 
         }
 
+    }
+    private void deleteItem(int position, String id) {
+        itRequestDataList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, itRequestDataList.size());
+        Toast.makeText(managerRequestForIT, id+"123", Toast.LENGTH_SHORT).show();
+        managerRequestForIT.deleteData(id);
     }
 }

@@ -65,4 +65,14 @@
     <string name="admin_request">Admin Request</string>
     <string name="admin_requests">Admin Requests</string>
     <string name="managers_requests">Managers Requests</string>
+    <string name="jan_01_2020">Jan 01 2020</string>
+    <string name="to">TO</string>
+    <string name="annual_leave">Annual Leave</string>
+    <string name="from">From</string>
+    <string name="add_manager">Add Manager</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_email">Enter email</string>
+    <string name="add_user">Add User</string>
+    <string name="enter_name">Enter name</string>
+
 </resources>

@@ -18,7 +18,6 @@ public class Forgetpassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgetpassword);
-
     }
 
     public void ForgotPassword(View view) {
@@ -31,10 +30,12 @@ public class Forgetpassword extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(Forgetpassword.this, "An email will be sent to your account", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Forgetpassword.this, "An email will be sent to your account",
+                                    Toast.LENGTH_SHORT).show();
                         }
                         else
-                            Toast.makeText(Forgetpassword.this, "Something went wrong recheck the email you entered", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Forgetpassword.this, "Something went wrong recheck the email you entered",
+                                    Toast.LENGTH_SHORT).show();
                     }
                 });
 

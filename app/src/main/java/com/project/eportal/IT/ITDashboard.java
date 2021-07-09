@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.project.eportal.R;
-import com.project.eportal.manager.ManagerItRequestActivity;
 
 public class ITDashboard extends AppCompatActivity {
 
@@ -25,6 +24,17 @@ public class ITDashboard extends AppCompatActivity {
 
     public void adminrequests(View view) {
         Intent intent = new Intent(ITDashboard.this, ManagerRequestForIT.class);
+        startActivity(intent);
+    }
+
+    public void AddUser(View view) {
+        Intent intent = new Intent(ITDashboard.this, Add.class);
+        intent.putExtra("Add", "0");
+        startActivity(intent);
+    }
+
+    public void AddManager(View view) {
+        Intent intent = new Intent(ITDashboard.this, AddManager.class);
         startActivity(intent);
     }
 }

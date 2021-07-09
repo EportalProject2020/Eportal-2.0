@@ -42,40 +42,40 @@ public class meeting_employee extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         progressDialog = new ProgressDialog(this);
-        showData();
+//        showData();
 
     }
 
-    private void showData() {
-
-        progressDialog.setTitle("Loading Data...");
-        progressDialog.show();
-
-        db.collection("items")
-
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        progressDialog.dismiss();
-                        for (DocumentSnapshot item : task.getResult()) {
-                            MeetingData data = new MeetingData(
-                                    item.getString("title")
-                                    , item.getString("description"));
-                            meetingData.add(data);
-                        }
-                        adapter = new EmployeeAdapter(meeting_employee.this, meetingData);
-                        recyclerView.setAdapter(adapter);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(meeting_employee.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
+//    private void showData() {
+//
+//        progressDialog.setTitle("Loading Data...");
+//        progressDialog.show();
+//
+//        db.collection("items")
+//
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        progressDialog.dismiss();
+//                        for (DocumentSnapshot item : task.getResult()) {
+//                            MeetingData data = new MeetingData(
+//                                    item.getString("title")
+//                                    , item.getString("description"));
+//                            meetingData.add(data);
+//                        }
+//                        adapter = new EmployeeAdapter(meeting_employee.this, meetingData);
+//                        recyclerView.setAdapter(adapter);
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        progressDialog.dismiss();
+//                        Toast.makeText(meeting_employee.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//    }
 
 }

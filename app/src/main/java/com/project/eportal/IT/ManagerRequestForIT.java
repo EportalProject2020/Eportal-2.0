@@ -2,6 +2,7 @@ package com.project.eportal.IT;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class ManagerRequestForIT extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         progressDialog = new ProgressDialog(this);
         showData();
+      //  deleteData();
     }
 
     public void showData() {
@@ -59,7 +61,8 @@ public class ManagerRequestForIT extends AppCompatActivity {
                             ITRequestData data = new ITRequestData(
                                     documentSnapshot.getString("name"),
                                     documentSnapshot.getString("title"),
-                                    documentSnapshot.getString("description"));
+                                    documentSnapshot.getString("description"),
+                                    documentSnapshot.getString("ID"));
                             itRequestDataList.add(data);
                         }
                         adapter = new ManagerRequestAdapterForIT(ManagerRequestForIT.this, itRequestDataList);
@@ -74,24 +77,25 @@ public class ManagerRequestForIT extends AppCompatActivity {
                     }
                 });
     }
-    public void deleteData(int position) {
-//        progressDialog.setTitle("Deleting...");
-//        progressDialog.dismiss();
-        db.collection("ITRequestManager").document(itRequestDataList.get(position).getRequestID())
+    public void deleteData(String position) {
+        progressDialog.setTitle("Deleting...");
+        progressDialog.dismiss();
+        Toast.makeText(ManagerRequestForIT.this, position, Toast.LENGTH_SHORT).show();
+        db.collection("ITRequestManager").document("f2cbe77a-d217-4127-a2b8-40a9626f5b6b ")
                 .delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-//                         Toast.makeText(ManagerRequestForIT.this, "Deleted...", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(ManagerRequestForIT.this, "Deleted...", Toast.LENGTH_SHORT).show();
                         showData();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(ManagerRequestForIT.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ManagerRequestForIT.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
+   }
 
 }

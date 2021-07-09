@@ -58,14 +58,16 @@ public class UsersRequests extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         progressDialog.dismiss();
-                        for (DocumentSnapshot documentSnapshot:task.getResult()){
+                        for (DocumentSnapshot documentSnapshot : task.getResult()) {
                             ITRequestData data = new ITRequestData(
-                            documentSnapshot.getString("name"),
+
+                                    documentSnapshot.getString("name"),
                                     documentSnapshot.getString("title"),
-                                   documentSnapshot.getString("description"));
+                                    documentSnapshot.getString("description"),
+                                    documentSnapshot.getString("ID"));
                             itRequestDataList.add(data);
                         }
-                        adapter = new UserRequestAdapterforManager(UsersRequests.this,itRequestDataList);
+                        adapter = new UserRequestAdapterforManager(UsersRequests.this, itRequestDataList);
                         recyclerView.setAdapter(adapter);
                     }
                 })
