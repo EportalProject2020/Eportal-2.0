@@ -30,7 +30,7 @@
         <activity android:name=".manager.Meeting_manager" />
         <activity android:name=".calendar.activities.Calendar" />
         <activity android:name=".manager.ManagerDashboard" />
-        <activity android:name=".manager.AdminLogin" />
+        <activity android:name=".manager.ManagerLogin" />
         <activity android:name=".employee.EmployeeLogin" />
         <activity android:name=".employee.Dashboard" />
         <activity android:name=".Splash">

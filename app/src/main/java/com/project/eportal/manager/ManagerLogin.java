@@ -3,7 +3,6 @@ package com.project.eportal.manager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,18 +18,17 @@ import com.google.firebase.auth.FirebaseUser;
 import com.project.eportal.Forgetpassword;
 import com.project.eportal.MainActivity;
 import com.project.eportal.R;
-import com.project.eportal.employee.EmployeeLogin;
 
-public class AdminLogin extends AppCompatActivity {
+public class ManagerLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_login);
+        setContentView(R.layout.activity_manager_login);
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(AdminLogin.this, MainActivity.class);
+        Intent intent = new Intent(ManagerLogin.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
@@ -57,13 +55,13 @@ public class AdminLogin extends AppCompatActivity {
                                 // Sign in success,
 
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                Intent intent = new Intent(AdminLogin.this,
+                                Intent intent = new Intent(ManagerLogin.this,
                                         ManagerDashboard.class);
                                 startActivity(intent);
                                 finish();
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(AdminLogin.this,
+                                Toast.makeText(ManagerLogin.this,
                                         "Re-check the email and password you entered"
                                         , Toast.LENGTH_SHORT).show();
                             }
@@ -75,7 +73,7 @@ public class AdminLogin extends AppCompatActivity {
     }
 
     public void forgot_pass(View view) {
-        Intent intent = new Intent(AdminLogin.this, Forgetpassword.class);
+        Intent intent = new Intent(ManagerLogin.this, Forgetpassword.class);
         startActivity(intent);
     }
 

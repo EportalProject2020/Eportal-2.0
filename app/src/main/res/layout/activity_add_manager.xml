@@ -86,7 +86,6 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_button"
         android:gravity="center"
-        android:onClick="AddManager"
         android:text="@string/add_manager"
         android:textAllCaps="false"
         android:textColor="@color/Black"

@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     android:orientation="vertical"
     android:paddingHorizontal="8dp"
-    tools:context=".manager.AdminLogin">
+    tools:context=".manager.ManagerLogin">
 
     <TextView
         android:layout_width="wrap_content"

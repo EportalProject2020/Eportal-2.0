@@ -19,12 +19,10 @@ public class Add extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private FirebaseDatabase database;
-    private final static String USER = "user";
     public EditText et_password;
     public EditText et_email;
     public EditText et_name;
     public Button btn_add;
-
     private UserData user;
 
     @Override
@@ -49,7 +47,8 @@ public class Add extends AppCompatActivity {
                 user.setEmail(mail);
                 user.setPassword(password);
                 databaseReference.push().setValue(user);
-                Toast.makeText(Add.this, "User added successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Add.this, "User added successfully",
+                        Toast.LENGTH_SHORT).show();
 
 
 //                if (TextUtils.isEmpty(mail) || TextUtils.isEmpty(password)) {
@@ -64,13 +63,13 @@ public class Add extends AppCompatActivity {
 
     }
 
-    public void AddUser(View view) {
-        String text = getIntent().getStringExtra("Add");
-        if (text == "0") {
-        } else {
-        }
-
-    }
+//    public void AddUser(View view) {
+//        String text = getIntent().getStringExtra("Add");
+//        if (text == "0") {
+//        } else {
+//        }
+//
+//    }
 
 }
 
