@@ -52,6 +52,8 @@ public class EmployeeLogin extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         mDatabase = database.getReference("USER");
         mAuth = FirebaseAuth.getInstance();
+        Intent intent = new Intent(EmployeeLogin.this,Dashboard.class);
+        startActivity(intent);
 
     }
 

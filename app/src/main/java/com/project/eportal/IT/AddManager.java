@@ -30,24 +30,31 @@ public class AddManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_manager);
 
-        btn_add = findViewById(R.id.btn_Addnewuser);
+        btn_add = findViewById(R.id.btn_Addnewmanager);
         et_name = findViewById(R.id.et_name);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         manager = new ManagerData();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("ManagerData");
+
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String password = et_password.getText().toString();
                 String mail = et_email.getText().toString();
                 String name = et_name.getText().toString();
+
+                database = FirebaseDatabase.getInstance();
+                databaseReference = database.getReference("ManagerData");
+
+                manager.setId("0");
                 manager.setName(name);
                 manager.setEmail(mail);
                 manager.setPassword(password);
-                databaseReference.push().setValue(manager);
-                Toast.makeText(AddManager.this, "User added successfully",
+
+                databaseReference.child(name).setValue(manager);
+
+                Toast.makeText(AddManager.this, "Manager added successfully",
                         Toast.LENGTH_SHORT).show();
             }
         });

@@ -28,22 +28,20 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.MyView
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_empolyee, parent, false);
         MyViewHolder holder = new MyViewHolder(v);
 
-        holder.setOnclickListener(new MyViewHolder.ClickListener(){
-            @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(meetingEmployee, "Redirecting to zoom", Toast.LENGTH_SHORT).show();
-            }
-        });
         return holder;
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-//        MeetingData currentdata = meetingData.get(position);
-
         holder.textView_title.setText(meetingData.get(position).getTitle());
         holder.textView_link.setText(meetingData.get(position).getLink());
+        holder.setOnclickListener(new MyViewHolder.ClickListener(){
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(meetingEmployee, "Redirecting to zoom", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

@@ -36,40 +36,29 @@ public class Add extends AppCompatActivity {
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         user = new UserData();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("UserData");
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String password = et_password.getText().toString();
                 String mail = et_email.getText().toString();
                 String name = et_name.getText().toString();
+
+                database = FirebaseDatabase.getInstance();
+                databaseReference = database.getReference("UserData");
+
                 user.setName(name);
                 user.setEmail(mail);
                 user.setPassword(password);
-                databaseReference.push().setValue(user);
+
+                databaseReference.child(name).setValue(user);
                 Toast.makeText(Add.this, "User added successfully",
                         Toast.LENGTH_SHORT).show();
 
 
-//                if (TextUtils.isEmpty(mail) || TextUtils.isEmpty(password)) {
-//                    Toast.makeText(Add.this, "Enter a valid mail and password", Toast.LENGTH_SHORT).show();
-
-//                    return;
-//                }
-//                registerUser(mail, password)
             }
         });
 
 
     }
-
-//    public void AddUser(View view) {
-//        String text = getIntent().getStringExtra("Add");
-//        if (text == "0") {
-//        } else {
-//        }
-//
-//    }
-
 }
 

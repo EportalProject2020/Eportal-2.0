@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".manager.ManagerItRequestActivity">
+    tools:context=".manager.ManagerMakeItRequest">
 
     <Button
         android:id="@+id/btn_users_requests"
@@ -128,7 +128,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bg_button"
-            android:onClick="addrequest"
             android:padding="16dp"
             android:text="@string/add_request"
             android:textAllCaps="false"

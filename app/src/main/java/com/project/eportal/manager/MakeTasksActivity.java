@@ -41,6 +41,7 @@ public class MakeTasksActivity extends AppCompatActivity {
 
     StorageReference storageReference;
     DatabaseReference databaseReference;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,9 @@ public class MakeTasksActivity extends AppCompatActivity {
 
         }
         storageReference = FirebaseStorage.getInstance().getReference("Task PDF");
-        databaseReference = FirebaseDatabase.getInstance().getReference("Task PDF");
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("Task PDF");
 
         btn.setEnabled(false);
 

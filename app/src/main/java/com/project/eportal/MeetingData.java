@@ -8,14 +8,11 @@ import java.util.Date;
 public class MeetingData {
     private String title;
     private String link;
-    private @ServerTimestamp Date timestamp;
     private String meeting_id;
 
 
-    public MeetingData( String title, String link) {
-        this.title = title;
-        this.link = link;
-    }
+    public MeetingData(){};
+//
 
     public String getTitle() {
         return title;
@@ -33,13 +30,6 @@ public class MeetingData {
         this.link = link;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
     public String getMeeting_id() {
         return meeting_id;
     }
