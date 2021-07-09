@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -26,7 +28,8 @@ public class meeting_employee extends AppCompatActivity {
     List<MeetingData> meetingData = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    FirebaseFirestore db;
+    FirebaseDatabase database;
+    DatabaseReference databaseReference;
     EmployeeAdapter adapter;
     ProgressDialog progressDialog;
 
@@ -35,13 +38,15 @@ public class meeting_employee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_empolyee);
 
-        db = FirebaseFirestore.getInstance();
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("MeetingData");
         recyclerView = findViewById(R.id.rv_meeting);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
         progressDialog = new ProgressDialog(this);
+
+
 //        showData();
 
     }

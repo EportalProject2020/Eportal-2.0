@@ -48,7 +48,7 @@ public class EmployeeMakeITRequest extends AppCompatActivity {
                 String name = et_name.getText().toString();
 
                 database = FirebaseDatabase.getInstance();
-                databaseReference = database.getReference("User IT Requests");
+                databaseReference = database.getReference("Manager IT Requests");
 
                 userITRequestData.setTitle(title);
                 userITRequestData.setDescreption(description);
@@ -60,4 +60,36 @@ public class EmployeeMakeITRequest extends AppCompatActivity {
             }
         });
     }
+
+
+
+//    private void uploadData(String name, String title, String description) {
+//
+//        progressDialog.setTitle("Adding your request ");
+//        progressDialog.show();
+//        String requestId = UUID.randomUUID().toString();
+//
+//        Map<String, Object> ITRequestuser = new HashMap<>();
+//        ITRequestuser.put("ID", requestId);
+//        ITRequestuser.put("name", name);
+//        ITRequestuser.put("title", title);
+//        ITRequestuser.put("description", description);
+//
+//        db.collection("ITRequestuser").document(requestId).set(ITRequestuser)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        progressDialog.dismiss();
+//                        Toast.makeText(EmployeeMakeITRequest.this, "Request has been added", Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(EmployeeMakeITRequest.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//    }
+
 }

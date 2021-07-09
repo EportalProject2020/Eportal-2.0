@@ -10,16 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.project.eportal.Forgetpassword;
 import com.project.eportal.MainActivity;
@@ -29,31 +24,17 @@ public class ManagerLogin extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseDatabase database;
     private Button btn_login;
-    private EditText pass,mail;
+    private EditText et_pass,et_mail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_login);
 
-        mail = findViewById(R.id.manager_mail);
-        pass = findViewById(R.id.manager_pass);
+        et_mail = findViewById(R.id.manager_mail);
+        et_pass = findViewById(R.id.manager_pass);
         btn_login = findViewById(R.id.btn_login);
 
-        String email = mail.getText().toString();
-        String password = pass.getText().toString();
-
-        database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("ManagerData");
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ManagerLogin.this,
-                                      ManagerDashboard.class);
-                                startActivity(intent);
-                                finish();
-            }
-        });
     }
 
     @Override
@@ -62,9 +43,38 @@ public class ManagerLogin extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
     public void Login(View view) {
-        FirebaseApp.initializeApp(this);
+
+        final String email = et_mail.getText().toString();
+        final String password = et_pass.getText().toString();
+
+//        Query checkmanagerdata = FirebaseDatabase.getInstance().getReference("ManagerData")
+//                .orderByChild("email").equalTo(email);
+//        checkmanagerdata.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(snapshot.exists()){
+//                    String managerpassword = snapshot.child(email).child("password").getValue(String.class);
+//                    if (managerpassword.equals(password)){
+//
+                        Intent intent = new Intent(ManagerLogin.this,ManagerDashboard.class);
+                        startActivity(intent);
+                        finish();
+//                    }
+//                    else {
+//                        Toast.makeText(ManagerLogin.this, "Password does not match", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//                else {
+//                    Toast.makeText(ManagerLogin.this, "Data not found", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        });
+
+
 
 
 //        databaseReference.addValueEventListener(new ValueEventListener() {

@@ -2,14 +2,10 @@ package com.project.eportal.employee;
 
 public class UserData {
 
-
-
     private String email;
     private String name;
     private String password;
     private String id;
-
-
 
     public String getEmail() {
         return email;

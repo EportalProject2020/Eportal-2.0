@@ -50,7 +50,7 @@ public class Add extends AppCompatActivity {
                 user.setEmail(mail);
                 user.setPassword(password);
 
-                databaseReference.child(name).setValue(user);
+                databaseReference.child(mail).setValue(user);
                 Toast.makeText(Add.this, "User added successfully",
                         Toast.LENGTH_SHORT).show();
 

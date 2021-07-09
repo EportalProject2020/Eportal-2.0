@@ -1,14 +1,20 @@
 package com.project.eportal.IT;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.eportal.R;
@@ -44,20 +50,44 @@ public class AddManager extends AppCompatActivity {
                 String mail = et_email.getText().toString();
                 String name = et_name.getText().toString();
 
+                mAuth = FirebaseAuth.getInstance();
                 database = FirebaseDatabase.getInstance();
                 databaseReference = database.getReference("ManagerData");
 
-                manager.setId("0");
                 manager.setName(name);
                 manager.setEmail(mail);
                 manager.setPassword(password);
 
-                databaseReference.child(name).setValue(manager);
-
+                databaseReference.child(mail).setValue(manager);
                 Toast.makeText(AddManager.this, "Manager added successfully",
                         Toast.LENGTH_SHORT).show();
+
+                addmanager(mail,password);
+
             }
         });
-
     }
+
+    private void addmanager(String mail, String password) {
+
+        mAuth.createUserWithEmailAndPassword(mail, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(AddManager.this, "Authentication done.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(AddManager.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
 }
+
+
+

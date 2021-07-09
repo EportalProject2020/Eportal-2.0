@@ -32,7 +32,7 @@ public class TaskAdapter  extends RecyclerView.Adapter<TaskAdapter.TaskViewHolde
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.employee_task_list_item, parent, false);
         TaskAdapter.TaskViewHolder holder = new TaskAdapter.TaskViewHolder(v);
-        holder.setOnclickListener(new EmployeeAdapter.MyViewHolder.ClickListener(){
+        holder.setOnclickListener(new TaskAdapter.TaskViewHolder.ClickListener(){
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(getTasksActivity, "Today's Task", Toast.LENGTH_SHORT).show();
@@ -48,7 +48,6 @@ public class TaskAdapter  extends RecyclerView.Adapter<TaskAdapter.TaskViewHolde
 
         holder.txtTaskTitle.setText(currentData.getTaskTitle());
         holder.txtTaskDesc.setText(currentData.getTaskDesc());
-
 
     }
 
@@ -78,11 +77,12 @@ public class TaskAdapter  extends RecyclerView.Adapter<TaskAdapter.TaskViewHolde
             });
 
         }
-        private EmployeeAdapter.MyViewHolder.ClickListener mClickListener;
+
+        public TaskAdapter.TaskViewHolder.ClickListener mClickListener;
         public interface ClickListener{
             void onItemClick(View view,int position);
         }
-        public void setOnclickListener(EmployeeAdapter.MyViewHolder.ClickListener clickListener){
+        public void setOnclickListener(TaskAdapter.TaskViewHolder.ClickListener clickListener){
             mClickListener= clickListener;
         }
 
