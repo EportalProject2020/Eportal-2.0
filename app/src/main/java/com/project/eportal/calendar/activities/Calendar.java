@@ -24,7 +24,7 @@ public class Calendar extends AppCompatActivity {
     private DatePickerDialog datePickerDialog2;
 
     private Button btn_date , btn_date2;
-
+//it's backk to its old shape
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
