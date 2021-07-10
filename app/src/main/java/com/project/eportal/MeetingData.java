@@ -10,9 +10,16 @@ public class MeetingData {
     private String link;
     private String meeting_id;
 
+    public MeetingData(String title, String link, String meeting_id) {
+        this.title = title;
+        this.link = link;
+        this.meeting_id = meeting_id;
+    }
 
-    public MeetingData(){};
-//
+    public MeetingData(String title, String link) {
+        this.title = title;
+        this.link = link;
+    }
 
     public String getTitle() {
         return title;

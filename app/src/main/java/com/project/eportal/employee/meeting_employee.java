@@ -28,8 +28,7 @@ public class meeting_employee extends AppCompatActivity {
     List<MeetingData> meetingData = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    FirebaseDatabase database;
-    DatabaseReference databaseReference;
+    FirebaseFirestore database;
     EmployeeAdapter adapter;
     ProgressDialog progressDialog;
 
@@ -38,8 +37,7 @@ public class meeting_employee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_empolyee);
 
-        database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("MeetingData");
+        database = FirebaseFirestore.getInstance();
         recyclerView = findViewById(R.id.rv_meeting);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -47,40 +45,40 @@ public class meeting_employee extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
 
-//        showData();
+        showData();
 
     }
 
-//    private void showData() {
-//
-//        progressDialog.setTitle("Loading Data...");
-//        progressDialog.show();
-//
-//        db.collection("items")
-//
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        progressDialog.dismiss();
-//                        for (DocumentSnapshot item : task.getResult()) {
-//                            MeetingData data = new MeetingData(
-//                                    item.getString("title")
-//                                    , item.getString("description"));
-//                            meetingData.add(data);
-//                        }
-//                        adapter = new EmployeeAdapter(meeting_employee.this, meetingData);
-//                        recyclerView.setAdapter(adapter);
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        progressDialog.dismiss();
-//                        Toast.makeText(meeting_employee.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//    }
+    private void showData() {
+
+        progressDialog.setTitle("Loading Data...");
+        progressDialog.show();
+
+        database.collection("items")
+
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        progressDialog.dismiss();
+                        for (DocumentSnapshot item : task.getResult()) {
+                            MeetingData data = new MeetingData(
+                                    item.getString("title")
+                                    , item.getString("description"));
+                            meetingData.add(data);
+                        }
+                        adapter = new EmployeeAdapter(meeting_employee.this, meetingData);
+                        recyclerView.setAdapter(adapter);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(meeting_employee.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
 
 }

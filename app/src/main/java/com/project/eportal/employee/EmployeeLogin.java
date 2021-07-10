@@ -41,16 +41,14 @@ public class EmployeeLogin extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         FirebaseDatabase database;
         DatabaseReference mDatabase;
+        FirebaseFirestore db;
         FirebaseAuth mAuth;
-
-
 
         EditText et_mail = findViewById(R.id.emp_mail);
         EditText emp_pass = findViewById(R.id.emp_pass);
         String email = et_mail.getText().toString();
         String password = emp_pass.getText().toString();
         database = FirebaseDatabase.getInstance();
-        mDatabase = database.getReference("USER");
         mAuth = FirebaseAuth.getInstance();
         Intent intent = new Intent(EmployeeLogin.this,Dashboard.class);
         startActivity(intent);

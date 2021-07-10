@@ -1,7 +1,6 @@
 package com.project.eportal.IT;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,20 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.R;
 import com.project.eportal.manager.ManagerData;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class AddManager extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private DatabaseReference databaseReference;
-    private FirebaseDatabase database;
+    private FirebaseFirestore database;
     public EditText et_password;
     public EditText et_email;
     public EditText et_name;
@@ -40,7 +41,6 @@ public class AddManager extends AppCompatActivity {
         et_name = findViewById(R.id.et_name);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
-        manager = new ManagerData();
 
 
         btn_add.setOnClickListener(new View.OnClickListener() {
@@ -51,24 +51,49 @@ public class AddManager extends AppCompatActivity {
                 String name = et_name.getText().toString();
 
                 mAuth = FirebaseAuth.getInstance();
-                database = FirebaseDatabase.getInstance();
-                databaseReference = database.getReference("ManagerData");
+                database = FirebaseFirestore.getInstance();
 
-                manager.setName(name);
-                manager.setEmail(mail);
-                manager.setPassword(password);
+                String id = UUID.randomUUID().toString();
 
-                databaseReference.child(mail).setValue(manager);
-                Toast.makeText(AddManager.this, "Manager added successfully",
-                        Toast.LENGTH_SHORT).show();
+                manager = new ManagerData(mail, name, password, id);
 
-                addmanager(mail,password);
+                addmanager(name, mail, password, id);
+                authenticatemanager(mail, password);
 
             }
         });
     }
 
-    private void addmanager(String mail, String password) {
+    private void addmanager(String name, String mail, String password, String id) {
+
+        Map<String, Object> Managers = new HashMap<>();
+        Managers.put("ID", id);
+        Managers.put("name", name);
+        Managers.put("mail", mail);
+        Managers.put("password", password);
+
+        manager.setName(name);
+        manager.setEmail(mail);
+        manager.setPassword(password);
+        manager.setId(id);
+
+        database.collection("Managers").document(name).set(Managers)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(AddManager.this, "Manager added successfully",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddManager.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void authenticatemanager(String mail, String password) {
 
         mAuth.createUserWithEmailAndPassword(mail, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

@@ -16,15 +16,16 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.R;
+import com.project.eportal.employee.EmployeeMakeITRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 public class ManagerMakeItRequest extends AppCompatActivity {
-    private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
+    private FirebaseFirestore database;
     private EditText et_name,et_title,et_description;
     private ManagerRequestsData managerRequestsData;
     private Button btn_newrequest ;
@@ -38,7 +39,7 @@ public class ManagerMakeItRequest extends AppCompatActivity {
         et_description = findViewById(R.id.et_description);
         btn_newrequest = findViewById(R.id.btn_addrequest);
 
-        managerRequestsData = new ManagerRequestsData();
+
 
         btn_newrequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,14 +49,37 @@ public class ManagerMakeItRequest extends AppCompatActivity {
                 String description = et_description.getText().toString();
                 String name = et_name.getText().toString();
 
-                database = FirebaseDatabase.getInstance();
-                databaseReference = database.getReference("Manager IT Requests");
+                database = FirebaseFirestore.getInstance();
+
+                String requestId = UUID.randomUUID().toString();
+
+                managerRequestsData = new ManagerRequestsData(title,description,name,requestId);
+
+                Map<String, Object> ITRequestManager = new HashMap<>();
+                ITRequestManager.put("ID", requestId);
+                ITRequestManager.put("name", name);
+                ITRequestManager.put("title", title);
+                ITRequestManager.put("description", description);
 
                 managerRequestsData.setTitle(title);
                 managerRequestsData.setDescreption(description);
                 managerRequestsData.setName(name);
+                managerRequestsData.setRequestID(requestId);
 
-                databaseReference.child(name).setValue(managerRequestsData);
+                database.collection("ITRequestManager").document(name).set(ITRequestManager)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(ManagerMakeItRequest.this, "Request has been added", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(ManagerMakeItRequest.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
                 Toast.makeText(ManagerMakeItRequest.this, "Your request has been added successfully",
                         Toast.LENGTH_SHORT).show();
 

@@ -6,6 +6,13 @@ public class ManagerData {
     private String password;
     private String id;
 
+    public ManagerData(String email, String name, String password, String id) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.id = id;
+    }
+
     public String getEmail() {
         return email;
     }
