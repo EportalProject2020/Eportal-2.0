@@ -18,6 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.R;
 import com.project.eportal.employee.UserData;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -38,6 +40,8 @@ public class Add extends AppCompatActivity {
         setContentView(R.layout.activity_add_user);
 
 
+
+
         btn_add = findViewById(R.id.btn_Addnewuser);
         et_name = findViewById(R.id.et_name);
         et_email = findViewById(R.id.et_email);
@@ -48,14 +52,17 @@ public class Add extends AppCompatActivity {
                 String password = et_password.getText().toString();
                 String mail = et_email.getText().toString();
                 String name = et_name.getText().toString();
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss:a");
+                final String time = "Login Time: " + format.format(calendar.getTime());
 
                 mAuth = FirebaseAuth.getInstance();
                 database = FirebaseFirestore.getInstance();
 
                 String id = UUID.randomUUID().toString();
-                user = new UserData(mail, name, password, id);
+                user = new UserData(mail, name);
 
-                adduser(name, mail, password, id);
+                adduser(name, mail, password, id, time);
                 authenticateuser(mail, password);
 
             }
@@ -63,18 +70,20 @@ public class Add extends AppCompatActivity {
 
     }
 
-    private void adduser(String name, String mail, String password, String id) {
+    private void adduser(String name, String mail, String password, String id, String time) {
 
         Map<String, Object> users = new HashMap<>();
         users.put("ID", id);
         users.put("name", name);
         users.put("mail", mail);
         users.put("password", password);
+        users.put("time" , time);
 
         user.setName(name);
         user.setEmail(mail);
         user.setPassword(password);
         user.setId(id);
+        user.setTime(time);
 
         database.collection("users").document(name).set(users)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

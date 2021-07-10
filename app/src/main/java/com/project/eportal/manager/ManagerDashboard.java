@@ -42,7 +42,7 @@ public class ManagerDashboard extends AppCompatActivity {
     }
 
     public void calenderEdit(View view) {
-        Intent i = new Intent(ManagerDashboard.this, Calendar.class);
+        Intent i = new Intent(ManagerDashboard.this, LogsActivity.class);
         startActivity(i);
     }
 

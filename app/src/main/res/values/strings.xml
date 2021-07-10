@@ -74,5 +74,7 @@
     <string name="enter_email">Enter email</string>
     <string name="add_user">Add User</string>
     <string name="enter_name">Enter name</string>
+    <string name="employee_s_name">Employee\'s Name</string>
+    <string name="login_time">Login Time</string>
 
 </resources>

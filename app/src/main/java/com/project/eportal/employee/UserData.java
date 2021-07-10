@@ -6,12 +6,22 @@ public class UserData {
     private String name;
     private String password;
     private String id;
+    private String time;
 
-    public UserData(String email, String name, String password, String id) {
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public UserData(String email, String name) {
         this.email = email;
         this.name = name;
         this.password = password;
         this.id = id;
+        this.time = time;
     }
 
     public String getEmail() {

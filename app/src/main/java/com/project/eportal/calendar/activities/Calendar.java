@@ -11,10 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.project.eportal.MainActivity;
 import com.project.eportal.R;
 import com.project.eportal.employee.EmployeeLogin;
+
+import java.text.SimpleDateFormat;
 
 
 // test test backk or not
@@ -26,14 +29,20 @@ public class Calendar extends AppCompatActivity {
     private DatePickerDialog datePickerDialog2;
 
     private Button btn_date , btn_date2;
-//it's backk to its old shape
-
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss aa");
+        String LoginTime = "Login Time: " + format.format(calendar.getTime());
 
+
+
+        textView = findViewById(R.id.textView);
+        textView.setText(LoginTime);
         calendarView = findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
