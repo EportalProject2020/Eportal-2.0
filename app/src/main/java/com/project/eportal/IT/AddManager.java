@@ -70,7 +70,7 @@ public class AddManager extends AppCompatActivity {
         Managers.put("ID", id);
         Managers.put("name", name);
         Managers.put("mail", mail);
-        Managers.put("password", password);
+//        Managers.put("password", password);
 
         manager.setName(name);
         manager.setEmail(mail);

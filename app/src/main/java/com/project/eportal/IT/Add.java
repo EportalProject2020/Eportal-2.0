@@ -73,7 +73,7 @@ public class Add extends AppCompatActivity {
         users.put("ID", id);
         users.put("name", name);
         users.put("mail", mail);
-        users.put("password", password);
+//        users.put("password", password);
         users.put("time" , time);
 
         user.setName(name);
