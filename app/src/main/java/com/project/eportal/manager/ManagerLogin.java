@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -58,7 +60,7 @@ public class ManagerLogin extends AppCompatActivity {
         String email = et_mail.getText().toString();
         String password = et_pass.getText().toString();
 
-        copmaredata(email,password);
+//        copmaredata(email,password);
 
         mAuth = FirebaseAuth.getInstance();
         mAuth.signInWithEmailAndPassword(email, password)
@@ -81,29 +83,73 @@ public class ManagerLogin extends AppCompatActivity {
                 });
     }
 
-    private void copmaredata(final String email, String password) {
+//    public void checkEmail(CityCallback cityCallback){
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        db.collection("cities").whereEqualTo("cities", "Boston").get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()){
+//                            cityCallback.isCityExist(true);
+//                        }else{
+//                            cityCallback.isCityExist(false);
+//                        }
+//                    }
+//                });
+//    }
+//    private boolean copmaredata(String email) {
 
-        database.collection("Managers").document(email)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        for (DocumentSnapshot item : task.getResult()) {
-                            ManagerData manager = new ManagerData(
-                                    item.getString("email")
-                                    , item.getString("password"));
-                            managerData.add(manager);
-                        }
+//        DocumentReference docRef = database.collection("Managers").document(email);
+//        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//            @Override
+//            public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                ManagerData managerData = documentSnapshot.toObject(ManagerData.class);
+//            }
+//        });
 
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(meeting_employee.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
+//        database.collection("Managers").whereEqualTo("Managers", "email").get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()){
+//                            email=true;
+//                        }else{
+//                            cityCallback.isCityExist(false);
+//                        }
+//                    }
+//                });
+//        database.collection("Managers").document(email)
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            DocumentSnapshot documentSnapshot = task.getResult();
+//                            ManagerData managerData = documentSnapshot.toObject(ManagerData.class);
+//                            String x = task.getResult().toString();
+//                            Toast.makeText(ManagerLogin.this, "", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+
+
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        for (DocumentSnapshot item : task.getResult()) {
+//                            ManagerData manager = new ManagerData(
+//                                    item.getString("email")
+//                                    , item.getString("password"));
+//                            managerData.add(manager);
+//                        }
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(ManagerLogin.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+  //  }
 
     public void forgot_pass(View view) {
         Intent intent = new Intent(ManagerLogin.this, Forgetpassword.class);

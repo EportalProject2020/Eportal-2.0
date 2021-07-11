@@ -21,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.eportal.Forgetpassword;
 import com.project.eportal.MainActivity;
 import com.project.eportal.R;
+import com.project.eportal.manager.ManagerDashboard;
+import com.project.eportal.manager.ManagerLogin;
 
 public class EmployeeLogin extends AppCompatActivity {
 
@@ -39,20 +41,36 @@ public class EmployeeLogin extends AppCompatActivity {
 
     public void Login(View view) {
         FirebaseApp.initializeApp(this);
-        FirebaseDatabase database;
-        DatabaseReference mDatabase;
-        FirebaseFirestore db;
+        FirebaseFirestore database;
         FirebaseAuth mAuth;
 
         EditText et_mail = findViewById(R.id.emp_mail);
         EditText emp_pass = findViewById(R.id.emp_pass);
+
         String email = et_mail.getText().toString();
         String password = emp_pass.getText().toString();
-        database = FirebaseDatabase.getInstance();
-        mAuth = FirebaseAuth.getInstance();
-        Intent intent = new Intent(EmployeeLogin.this,Dashboard.class);
-        startActivity(intent);
 
+        database = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success,
+                            Intent intent = new Intent(EmployeeLogin.this,
+                                    ManagerDashboard.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(EmployeeLogin.this,
+                                    "Re-check the email and password you entered"
+                                    , Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     public void forgot_pass(View view) {
