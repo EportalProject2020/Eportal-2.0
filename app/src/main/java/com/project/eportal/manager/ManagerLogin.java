@@ -52,7 +52,6 @@ public class ManagerLogin extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(ManagerLogin.this, MainActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void Login(View view) {

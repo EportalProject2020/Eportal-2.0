@@ -60,7 +60,7 @@ public class EmployeeLogin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success,
                             Intent intent = new Intent(EmployeeLogin.this,
-                                    ManagerDashboard.class);
+                                    Dashboard.class);
                             startActivity(intent);
                             finish();
                         } else {

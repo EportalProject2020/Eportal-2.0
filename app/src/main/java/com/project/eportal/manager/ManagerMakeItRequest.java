@@ -80,9 +80,6 @@ public class ManagerMakeItRequest extends AppCompatActivity {
                             }
                         });
 
-                Toast.makeText(ManagerMakeItRequest.this, "Your request has been added successfully",
-                        Toast.LENGTH_SHORT).show();
-
             }
         });
     }

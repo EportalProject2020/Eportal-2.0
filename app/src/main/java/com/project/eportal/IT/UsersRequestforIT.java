@@ -46,7 +46,7 @@ public class UsersRequestforIT extends AppCompatActivity {
         showData();
     }
 
-    private void showData() {
+    public void showData() {
         progressDialog.setTitle("Loading data...");
         progressDialog.show();
 
