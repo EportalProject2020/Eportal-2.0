@@ -77,7 +77,7 @@ public class AddManager extends AppCompatActivity {
         manager.setPassword(password);
         manager.setId(id);
 
-        database.collection("Managers").document(name).set(Managers)
+        database.collection("Managers").document(mail).set(Managers)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

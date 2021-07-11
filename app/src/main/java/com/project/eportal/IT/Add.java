@@ -39,9 +39,6 @@ public class Add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
 
-
-
-
         btn_add = findViewById(R.id.btn_Addnewuser);
         et_name = findViewById(R.id.et_name);
         et_email = findViewById(R.id.et_email);
@@ -85,7 +82,7 @@ public class Add extends AppCompatActivity {
         user.setId(id);
         user.setTime(time);
 
-        database.collection("users").document(name).set(users)
+        database.collection("users").document(mail).set(users)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

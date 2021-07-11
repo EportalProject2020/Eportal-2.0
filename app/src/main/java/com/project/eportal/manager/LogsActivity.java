@@ -57,15 +57,16 @@ public class LogsActivity extends AppCompatActivity {
         pd.setTitle("Loading Logs...");
         pd.show();
 
-        db.collection("users").
-                get()
+        db.collection("users")
+                .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
                         pd.dismiss();
                         for (DocumentSnapshot item:task.getResult()){
-                            UserData data = new UserData(item.getString("name")
+                            UserData data = new UserData(
+                                    item.getString("name")
                                     ,item.getString("time"));
                             userData.add(data);
                         }
