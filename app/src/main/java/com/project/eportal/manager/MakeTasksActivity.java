@@ -38,7 +38,6 @@ public class MakeTasksActivity extends AppCompatActivity {
     Button btn, btnSaveData;
     ProgressDialog pd;
     FirebaseFirestore db;
-
     StorageReference storageReference;
     DatabaseReference databaseReference;
     FirebaseDatabase database;
@@ -68,9 +67,7 @@ public class MakeTasksActivity extends AppCompatActivity {
                 uploadData(taskTitle, taskDesc);
             }
         });
-        {
 
-        }
         storageReference = FirebaseStorage.getInstance().getReference("Task PDF");
 
         database = FirebaseDatabase.getInstance();

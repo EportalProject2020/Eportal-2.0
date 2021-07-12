@@ -99,4 +99,17 @@
         android:onClick="youareIT"
         app:layout_constraintTop_toBottomOf="@+id/btn_user"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_button"
+        android:text="Admin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="adminPage"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

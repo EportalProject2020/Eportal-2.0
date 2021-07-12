@@ -20,13 +20,13 @@
         android:id="@+id/textView"
         android:layout_width="390dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:text="@string/annual_leave"
         android:textColor="@color/Black"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
@@ -34,13 +34,12 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:text="@string/from"
         android:textColor="@color/Black"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -49,14 +48,14 @@
         style="?android:spinnerStyle"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@color/cardview_light_background"
         android:onClick="openDataPicker"
         android:text="@string/jan_01_2020"
         android:textColor="@color/Black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -67,7 +66,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/to"
         android:textColor="@color/Black"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -79,16 +78,54 @@
         style="?android:spinnerStyle"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:background="@color/cardview_light_background"
         android:onClick="openDataPicker1"
         android:text="@string/jan_01_2020"
         android:textColor="@color/Black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/btn_submit_date"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/bg_button"
+        android:text="Submit Leave"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date_picker2"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <Button
+        android:id="@+id/btn_view_date"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_button"
+        android:text="View Leaves"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_submit_date"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date_picker2" />
+
+    <EditText
+        android:id="@+id/edt_employee_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="Add Your Name"
+        android:textColorHint="@color/Black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date_picker" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.project.eportal.R;
 import com.project.eportal.calendar.activities.Calendar;
+import com.project.eportal.calendar.activities.MangersCalendarActivity;
 
 public class ManagerDashboard extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class ManagerDashboard extends AppCompatActivity {
     }
 
     public void calenderEdit(View view) {
-        Intent i = new Intent(ManagerDashboard.this, LogsActivity.class);
+        Intent i = new Intent(ManagerDashboard.this, MangersCalendarActivity.class);
         startActivity(i);
     }
 
@@ -62,5 +63,11 @@ public class ManagerDashboard extends AppCompatActivity {
     public void ITRequest(View view) {
         Intent intent = new Intent(ManagerDashboard.this, ManagerMakeItRequest.class);
         startActivity(intent);
+    }
+
+    public void checkLogs(View view) {
+        Intent intent = new Intent(ManagerDashboard.this, LogsActivity.class);
+        startActivity(intent);
+
     }
 }

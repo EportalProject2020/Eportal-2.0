@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".manager.LogsActivity"></activity>
+        <activity android:name=".AdminActivity"></activity>
+        <activity android:name=".calendar.activities.MangersCalendarActivity" />
+        <activity android:name=".manager.LogsActivity" />
         <activity android:name=".IT.AddManager" />
         <activity android:name=".IT.Add" />
         <activity android:name=".IT.ManagerRequestForIT" />
