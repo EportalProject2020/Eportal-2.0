@@ -4,26 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".manager.UsersRequests">
 
-
-    <TextView
-        android:id="@+id/tv_usersrequests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="@string/users_requests"
-        android:paddingVertical="16dp"
-        android:textColor="@color/White"
-        android:layout_marginStart="8dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/LL_Addmanager"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_button1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/users_requests"
+            android:textColor="#fff"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/fl"
@@ -32,7 +31,7 @@
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_usersrequests">
+        app:layout_constraintTop_toBottomOf="@+id/LL_Addmanager">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

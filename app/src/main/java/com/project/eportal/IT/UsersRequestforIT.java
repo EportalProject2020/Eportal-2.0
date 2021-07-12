@@ -1,13 +1,13 @@
 package com.project.eportal.IT;
 
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -16,8 +16,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.project.eportal.R;
-import com.project.eportal.manager.UserRequestAdapterforManager;
-import com.project.eportal.manager.UsersRequests;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +28,7 @@ public class UsersRequestforIT extends AppCompatActivity {
     FirebaseFirestore db;
     UserRequestAdapterForIT adapter;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +56,7 @@ public class UsersRequestforIT extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         itRequestDataList.clear();
                         progressDialog.dismiss();
-                        for (DocumentSnapshot documentSnapshot:task.getResult()){
+                        for (DocumentSnapshot documentSnapshot : task.getResult()) {
                             ITRequestData data = new ITRequestData(
                                     documentSnapshot.getString("name"),
                                     documentSnapshot.getString("title"),
@@ -65,7 +64,7 @@ public class UsersRequestforIT extends AppCompatActivity {
                                     documentSnapshot.getString("ID"));
                             itRequestDataList.add(data);
                         }
-                        adapter = new UserRequestAdapterForIT(UsersRequestforIT.this,itRequestDataList);
+                        adapter = new UserRequestAdapterForIT(UsersRequestforIT.this, itRequestDataList);
                         recyclerView.setAdapter(adapter);
                     }
                 })
@@ -77,24 +76,4 @@ public class UsersRequestforIT extends AppCompatActivity {
                     }
                 });
     }
-    public void deleteData(int index){
-        progressDialog.setTitle("Deleting request");
-        progressDialog.show();
-        db.collection("ITRequestuser").document(itRequestDataList.get(index).getRequestID())
-                .delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(UsersRequestforIT.this, "Deleted...", Toast.LENGTH_SHORT).show();
-                        showData();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-    }
-
 }

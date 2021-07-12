@@ -4,30 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".manager.ManagerDashboard">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_button1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/home"
-        android:textColor="#fff"
-        android:textSize="50sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:text="@string/manager_ss_section"
-        android:textColor="#00008b"
-        android:textSize="20sp" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/home"
+            android:textColor="#fff"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -179,7 +173,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check Employee's logs"
+        android:text="@string/check_employee_s_logs"
+        android:layout_gravity="center"
+        android:textSize="20dp"
         android:onClick="checkLogs"
         android:textColor="@color/babyblue"/>
 

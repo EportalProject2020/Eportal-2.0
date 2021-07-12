@@ -50,7 +50,6 @@ public class MangersCalendarActivity extends AppCompatActivity {
 
     private void showData() {
 
-
         pd.setTitle("Loading Leaves...");
         pd.show();
 

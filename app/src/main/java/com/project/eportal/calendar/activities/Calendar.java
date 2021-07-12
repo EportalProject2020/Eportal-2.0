@@ -142,9 +142,8 @@ public class Calendar extends AppCompatActivity {
         int month1 = calendar.get(java.util.Calendar.MONTH);
         int day1 = calendar.get(java.util.Calendar.DAY_OF_MONTH);
 
-        String dd=year1+"/"+month1+"/"+day1+"/";
+        String dd=year1+"-"+month1+"-"+day1;
 
-        Toast.makeText(this, dd, Toast.LENGTH_SHORT).show();
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
 

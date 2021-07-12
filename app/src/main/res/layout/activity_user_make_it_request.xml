@@ -5,33 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".employee.EmployeeMakeITRequest">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/add_it_request"
-        android:textColor="@color/White"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_name"
+    <LinearLayout
+        android:id="@+id/LL_Addmanager"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_button1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/add_it_request"
+            android:textColor="#fff"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/LL_Addmanager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:padding="8dp"
-        android:text="@string/name"
+        android:text="@string/name1"
         android:textColor="@color/Black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/et_name" />
+        app:layout_constraintTop_toBottomOf="@id/LL_Addmanager" />
 
     <EditText
         android:id="@+id/et_name"
@@ -44,8 +56,8 @@
         android:padding="16dp"
         android:textColor="@color/Black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+         />
 
     <TextView
         android:id="@+id/tv_title"
@@ -57,7 +69,6 @@
         android:textColor="@color/Black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/et_title"
         app:layout_constraintTop_toBottomOf="@id/et_name" />
 
     <EditText
@@ -71,7 +82,6 @@
         android:padding="16dp"
         android:textColor="@color/Black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_description"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         tools:ignore="LabelFor" />
 
@@ -85,7 +95,8 @@
         android:textColor="@color/Black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/et_description" />
+        app:layout_constraintTop_toBottomOf="@id/et_title"
+         />
 
     <EditText
         android:id="@+id/et_description"
@@ -102,19 +113,21 @@
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/tv_description"
         tools:ignore="LabelFor" />
+    </LinearLayout>
     <Button
         android:id="@+id/btn_addrequest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="20dp"
         android:background="@drawable/bg_button"
         android:padding="16dp"
         android:text="@string/add_request"
         android:textAllCaps="false"
-        android:textColor="@color/Black"
+        android:textColor="@color/White"
         android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@id/et_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

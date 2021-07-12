@@ -5,55 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context=".employee.GetTasksActivity">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="600dp"
-    tools:ignore="MissingConstraints">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_tasks"
+
+    <LinearLayout
+        android:id="@+id/LL_Addmanager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/edit_text_employee"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-</ScrollView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:text="@string/tasks"
+            android:textColor="#fff"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-
-    <TextView
-        android:id="@+id/edit_text_employee"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="28dp"
-        android:gravity="bottom"
-        android:paddingStart="20dp"
-        android:paddingLeft="20dp"
-        android:text="Press Below To Get Your Task's Attachment"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_employee"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/LL_Addmanager">
+
+        <ScrollView
+            android:id="@+id/fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LL_Addmanager">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </ScrollView>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_employee"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/bg_button"
         android:onClick="retrievePDF"
-        android:text="Get Your Task File "
+        android:text="@string/get_your_task_file"
         android:textAllCaps="false"
+        android:textColor="@color/White"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

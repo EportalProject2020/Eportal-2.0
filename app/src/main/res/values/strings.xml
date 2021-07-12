@@ -5,11 +5,11 @@
     <string name="enter_email_address">Enter email address</string>
     <string name="password"> Password</string>
     <string name="login">Login</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">Sign in</string>
     <string name="please_login_to_get_access">Please Login to get access</string>
     <string name="email"> Email</string>
     <string name="log_in">Log In</string>
-    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password">Forgot Password</string>
     <string name="title_activity_dashboard_nav">dashboard_nav</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -22,13 +22,13 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="please_enter_the_email">Please enter the email</string>
     <string name="send_email">Send Email</string>
-    <string name="manger_s_section">Manger\'s Section</string>
+    <string name="manger_s_section">Mangers Section</string>
     <string name="meeting_room">Meeting Room</string>
     <string name="add_task">Add Task</string>
-    <string name="manager_ss_section">Manager\'s Section</string>
+    <string name="manager_ss_section">Managers Section</string>
     <string name="tasks">Tasks</string>
     <string name="calender">Calender</string>
-    <string name="employee_s_section">Employee\'s Section</string>
+    <string name="employee_s_section">E-Portal</string>
     <string name="home">Home</string>
     <string name="ITRequest">IT Request</string>
     <string name="title_activity_nav">NavActivity</string>
@@ -44,7 +44,7 @@
     <string name="userphoto">UserPhoto</string>
     <string name="managerphoto">managerphoto</string>
     <string name="click_on_the_icon_to_redirect_to_zoom">Click on the icon to redirect to zoom</string>
-    <string name="meeting_creation">Meeting creation</string>
+    <string name="meeting_creation">Meeting Creation</string>
     <string name="zoom">zoom</string>
     <string name="available_meetings">Available meetings</string>
     <string name="title">Title</string>
@@ -52,7 +52,7 @@
     <string name="enter_title_here">Enter title here</string>
     <string name="add_it_request">Add IT request</string>
     <string name="enter_your_name_here">Enter your name here</string>
-    <string name="name">Name</string>
+    <string name="name">Name:</string>
     <string name="description">Description</string>
     <string name="enter_description_here">Enter description here</string>
     <string name="users_requests">Users Requests</string>
@@ -62,11 +62,11 @@
     <string name="remove_request">remove request</string>
     <string name="if_you_are_an_it_click_here">If you are an IT click here</string>
     <string name="it_login">IT Login</string>
-    <string name="admin_request">Admin Request</string>
-    <string name="admin_requests">Admin Requests</string>
+    <string name="admin_request">Manager Request</string>
+    <string name="admin_requests">Manager Requests</string>
     <string name="managers_requests">Managers Requests</string>
     <string name="jan_01_2020">Jan 01 2020</string>
-    <string name="to">TO</string>
+    <string name="to">To</string>
     <string name="annual_leave">Annual Leave</string>
     <string name="from">From</string>
     <string name="add_manager">Add Manager</string>
@@ -74,7 +74,17 @@
     <string name="enter_email">Enter email</string>
     <string name="add_user">Add User</string>
     <string name="enter_name">Enter name</string>
-    <string name="employee_s_name">Employee\'s Name</string>
+    <string name="employee_s_name">Employee Name</string>
     <string name="login_time">Login Time</string>
+    <string name="add_your_name">Add Your Name</string>
+    <string name="view_leaves">View Leaves</string>
+    <string name="submit_leave">Submit Leave</string>
+    <string name="get_your_task_file">Get Your Task File</string>
+    <string name="press_below_to_get_your_task_s_attachment">Press Below To Get Your Tasks Attachment</string>
+    <string name="select_pdf_file">Select Pdf File</string>
+    <string name="check_employee_s_logs">Check Employee logs</string>
+    <string name="employee_leave_request">Employee Leave Request</string>
+    <string name="name1">Name</string>
+    <string name="it">IT</string>
 
 </resources>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.daimajia.androidanimations.library.Techniques;
+import com.project.eportal.employee.EmployeeLogin;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
@@ -21,7 +22,7 @@ public class Splash extends AwesomeSplash {
     @Override
     public void initSplash(ConfigSplash configSplash) {
         //Customize Circular Reveal
-        configSplash.setBackgroundColor(R.color.babyblue); //any color you want form colors.xml
+        configSplash.setBackgroundColor(R.color.splash); //any color you want form colors.xml
         configSplash.setAnimCircularRevealDuration(1000); //int ms
         configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
@@ -46,7 +47,7 @@ public class Splash extends AwesomeSplash {
 
 
         //Customize Title
-        configSplash.setTitleSplash("E-portal");
+        configSplash.setTitleSplash("E-Portal");
         configSplash.setTitleTextColor(R.color.White);
         configSplash.setTitleTextSize(40f); //float value
         configSplash.setAnimTitleDuration(1000);
@@ -59,7 +60,7 @@ public class Splash extends AwesomeSplash {
     @Override
     public void animationsFinished() {
 
-        Intent intent = new Intent(Splash.this,MainActivity.class);
+        Intent intent = new Intent(Splash.this, EmployeeLogin.class);
         startActivity(intent);
         finish();
     }
