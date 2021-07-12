@@ -53,8 +53,8 @@ public class EmployeeLogin extends AppCompatActivity {
 
         String email = et_mail.getText().toString();
         String password = emp_pass.getText().toString();
-        if(!email.toString().equals("")&&!password.equals("")) {
-            int y = copmaredata(email, password);
+        if(!email.equals("")&&!password.equals("")) {
+            int y = copmaredata(email);
 
             if (y != 0) {
                 if (y == 1) {
@@ -79,12 +79,12 @@ public class EmployeeLogin extends AppCompatActivity {
 
                 }
             }
-        }
+        } 
         else
             Toast.makeText(this, "Please! Enter Email and Password", Toast.LENGTH_SHORT).show();
     }
     int x=0;
-    private int copmaredata(final String email, String password) {
+    private int copmaredata(final String email) {
         if(x==0)
         {
             database.getInstance()
