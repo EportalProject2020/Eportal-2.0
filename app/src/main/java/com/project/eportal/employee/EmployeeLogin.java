@@ -84,7 +84,7 @@ public class EmployeeLogin extends AppCompatActivity {
 
 //                        name = snap.getString("name");
 
-                         getNameAndLoginTime(email, time);
+//                         getNameAndLoginTime(email, time);
 
                         Intent intent = new Intent(EmployeeLogin.this,
                                 Dashboard.class);
@@ -152,29 +152,29 @@ public class EmployeeLogin extends AppCompatActivity {
         return x;
     }
 
-    private void getNameAndLoginTime(String mail, final String time) {
-
-
-        Map<String, Object> users = new HashMap<>();
-        users.put("mail", mail);
-        users.put("time", time);
-
-
-
-        database.collection("users").document(mail).set(users)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(EmployeeLogin.this, "Logged in Successfully"+time, Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                    }
-                });
-
-    }
+//    private void getNameAndLoginTime(String mail, final String time) {
+//
+//
+//        Map<String, Object> users = new HashMap<>();
+//        users.put("mail", mail);
+//        users.put("time", time);
+//
+//
+//
+//        database.collection("users").document(mail).set(users)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        Toast.makeText(EmployeeLogin.this, "Logged in Successfully"+time, Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                    }
+//                });
+//
+//    }
 
     private int authenticateuser(final String email, final String password) {
         mAuth = FirebaseAuth.getInstance();
