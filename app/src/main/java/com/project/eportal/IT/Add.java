@@ -59,9 +59,9 @@ public class Add extends AppCompatActivity {
                 database = FirebaseFirestore.getInstance();
 
                 String id = UUID.randomUUID().toString();
-                user = new UserData(mail, name);
+                user = new UserData(name, time);
 
-                adduser(name, mail, password, id, time);
+                adduser(name, mail, password, id);
                 authenticateuser(mail, password);
 
             }
@@ -69,20 +69,18 @@ public class Add extends AppCompatActivity {
 
     }
 
-    private void adduser(String name, String mail, String password, String id, String time) {
+    private void adduser(String name, String mail, String password, String id) {
 
         Map<String, Object> users = new HashMap<>();
         users.put("ID", id);
         users.put("name", name);
         users.put("mail", mail);
 //        users.put("password", password);
-        users.put("time" , time);
 
         user.setName(name);
         user.setEmail(mail);
         user.setPassword(password);
         user.setId(id);
-        user.setTime(time);
 
         database.collection("users").document(mail).set(users)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -16,7 +16,7 @@ public class UserData {
         this.time = time;
     }
 
-    public UserData(String email, String name) {
+    public UserData(String time, String name) {
         this.email = email;
         this.name = name;
         this.password = password;

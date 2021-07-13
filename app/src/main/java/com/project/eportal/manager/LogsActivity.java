@@ -66,14 +66,14 @@ public class LogsActivity extends AppCompatActivity {
                         pd.dismiss();
                         for (DocumentSnapshot item:task.getResult()){
 
-                            Toast.makeText(LogsActivity.this, item.getTimestamp("time")+"", Toast.LENGTH_SHORT).show();
-//                            UserData data = new UserData(
-//                                    item.getString("name")
-//                                    ,item.getString("time"));
-//                            userData.add(data);
+                            Toast.makeText(LogsActivity.this, item.getString("name")+"", Toast.LENGTH_SHORT).show();
+                            UserData data = new UserData(
+                                    item.getString("name")
+                                    ,item.getString("time"));
+                            userData.add(data);
                         }
-//                        logsAdapter = new LogsAdapter(LogsActivity.this, userData);
-//                        recyclerView.setAdapter(logsAdapter);
+                       logsAdapter = new LogsAdapter(LogsActivity.this, userData);
+                        recyclerView.setAdapter(logsAdapter);
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
