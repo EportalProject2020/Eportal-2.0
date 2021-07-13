@@ -24,6 +24,7 @@ import com.project.eportal.MainActivity;
 import com.project.eportal.R;
 import com.project.eportal.employee.EmployeeLogin;
 import com.project.eportal.manager.MakeTasksActivity;
+import com.project.eportal.manager.ManagerDashboard;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -142,8 +143,6 @@ public class Calendar extends AppCompatActivity {
         int month1 = calendar.get(java.util.Calendar.MONTH);
         int day1 = calendar.get(java.util.Calendar.DAY_OF_MONTH);
 
-        String dd=year1+"-"+month1+"-"+day1;
-
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
 
@@ -208,13 +207,13 @@ public class Calendar extends AppCompatActivity {
         items.put("toDate", date2);
         items.put("employeeName", name);
 
-        db.collection("leaveRequest").document(id).set(items)
+        db.collection("leaveRequest").document(name).set(items)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
 
                         pd.dismiss();
-                        Toast.makeText(Calendar.this, "Tasks has been sent to employees", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Calendar.this, "Leaves has been sent to mangers", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -228,5 +227,9 @@ public class Calendar extends AppCompatActivity {
     }
 
 
+    public void viewLeavesForEmployee(View view) {
+        Intent i = new Intent(Calendar.this, MangersCalendarActivity.class);
+        startActivity(i);
 
+    }
 }

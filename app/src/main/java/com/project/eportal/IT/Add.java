@@ -49,9 +49,11 @@ public class Add extends AppCompatActivity {
                 String password = et_password.getText().toString();
                 String mail = et_email.getText().toString();
                 String name = et_name.getText().toString();
+
+
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss:a");
-                final String time = "Login Time: " + format.format(calendar.getTime());
+                final String time =  format.format(calendar.getTime());
 
                 mAuth = FirebaseAuth.getInstance();
                 database = FirebaseFirestore.getInstance();
