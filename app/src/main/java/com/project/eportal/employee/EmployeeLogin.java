@@ -19,7 +19,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.project.eportal.AdminActivity;
 import com.project.eportal.Forgetpassword;
 import com.project.eportal.IT.ITDashboard;
 import com.project.eportal.R;
@@ -51,7 +50,6 @@ public class EmployeeLogin extends AppCompatActivity {
             authenticateuser(email, password);
 
 
-
         } else
             Toast.makeText(this, "Please! Enter Email and Password", Toast.LENGTH_SHORT).show();
     }
@@ -61,34 +59,37 @@ public class EmployeeLogin extends AppCompatActivity {
 
     private int copmaredata(final String email, final String password) {
 
-        DocumentReference docRef = database.getInstance().collection("Admin").document(email);
+        DocumentReference docRef = database.getInstance().collection("users").document(email);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(DocumentSnapshot snap, FirebaseFirestoreException fe) {
                 if (snap.exists()) {
-                    if (snap.get("mail").toString().equals(email) && snap.get("password").toString().equals(password)) {
+                    if (snap.get("mail").toString().equals(email)) {
 
                         Intent intent = new Intent(EmployeeLogin.this,
-                                AdminActivity.class);
+                                Dashboard.class);
                         startActivity(intent);
-
-                    }
+                    } else
+                        Toast.makeText(EmployeeLogin.this, "Re-check your email and password"
+                                , Toast.LENGTH_SHORT).show();
                 }
+
             }
 
         });
-        DocumentReference docRef1 = database.getInstance().collection("users").document(email);
+        DocumentReference docRef1 = database.getInstance().collection("Admin").document(email);
         docRef1.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(DocumentSnapshot snap, FirebaseFirestoreException fe) {
                 if (snap.exists()) {
-                    if (snap.get("mail").toString().equals(email) && snap.get("password").toString().equals(password)) {
-                        {
-                            Intent intent = new Intent(EmployeeLogin.this,
-                                    Dashboard.class);
-                            startActivity(intent);
-                        }
-                    }
+                    if (snap.get("mail").toString().equals(email)) {
+                        Intent intent = new Intent(EmployeeLogin.this,
+                                Dashboard.class);
+                        startActivity(intent);
+
+                    } else
+                        Toast.makeText(EmployeeLogin.this, "Re-check your email and password"
+                                , Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -98,7 +99,7 @@ public class EmployeeLogin extends AppCompatActivity {
             @Override
             public void onEvent(DocumentSnapshot snap, FirebaseFirestoreException fe) {
                 if (snap.exists()) {
-                    if (snap.get("mail").toString().equals(email) && snap.get("password").toString().equals(password)) {
+                    if (snap.get("mail").toString().equals(email)) {
 
                         Intent intent = new Intent(EmployeeLogin.this,
                                 ITDashboard.class);
@@ -114,14 +115,15 @@ public class EmployeeLogin extends AppCompatActivity {
             @Override
             public void onEvent(DocumentSnapshot snap, FirebaseFirestoreException fe) {
                 if (snap.exists()) {
-                    if (snap.get("mail").toString().equals(email) && snap.get("password").toString().equals(password)) {
+                    if (snap.get("mail").toString().equals(email)) {
 
                         Intent intent = new Intent(EmployeeLogin.this,
                                 ManagerDashboard.class);
                         startActivity(intent);
-
                     }
-                    //update
+                    //else
+//                        Toast.makeText(EmployeeLogin.this, "Re-check your email and password"
+//                                , Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -136,7 +138,7 @@ public class EmployeeLogin extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        y=1;
+                        y = 1;
                         if (task.isSuccessful()) {
                             // Sign in success,
                             copmaredata(email, password);
