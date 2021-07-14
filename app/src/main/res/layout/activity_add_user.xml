@@ -49,11 +49,14 @@
         <EditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_margin="8dp"
+            android:background="@drawable/edt_background"
+
             android:hint="@string/enter_name"
             android:inputType="text"
             android:paddingVertical="8dp"
+            android:paddingStart="5dp"
             android:textColor="@color/Black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -71,13 +74,16 @@
         <EditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_margin="8dp"
+            android:background="@drawable/edt_background"
             android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
             android:paddingVertical="8dp"
+            android:paddingStart="5dp"
             android:textColor="@color/Black"
             android:textSize="18sp"
+
             android:textStyle="bold" />
 
         <TextView
@@ -93,13 +99,15 @@
         <EditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"
+            android:background="@drawable/edt_background"
             android:clickable="true"
             android:hint="@string/enter_password"
             android:inputType="textPassword"
             android:padding="8dp"
+            android:paddingStart="5dp"
             android:paddingTop="8dp"
             android:textSize="18sp" />
 

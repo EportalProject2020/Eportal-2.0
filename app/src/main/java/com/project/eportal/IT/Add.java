@@ -61,7 +61,7 @@ public class Add extends AppCompatActivity {
                 String id = UUID.randomUUID().toString();
                 user = new UserData(name, time);
 
-                adduser(name, mail, password, id);
+                adduser(name, mail, password, id, time);
                 authenticateuser(mail, password);
 
             }
@@ -69,18 +69,20 @@ public class Add extends AppCompatActivity {
 
     }
 
-    private void adduser(String name, String mail, String password, String id) {
+    private void adduser(String name, String mail, String password, String id, String time) {
 
         Map<String, Object> users = new HashMap<>();
         users.put("ID", id);
         users.put("name", name);
         users.put("mail", mail);
+        users.put("time", time);
 //        users.put("password", password);
 
         user.setName(name);
         user.setEmail(mail);
         user.setPassword(password);
         user.setId(id);
+        user.setTime(time);
 
         database.collection("users").document(mail).set(users)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
